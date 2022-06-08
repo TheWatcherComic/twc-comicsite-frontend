@@ -6,6 +6,5 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     
-    <App />,
-    document.body.classList.add('dark:bg-[#0E0F11]'),
+    <App />
 );

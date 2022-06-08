@@ -16,7 +16,7 @@ const Navbar = () =>{
   ]; 
   let [open,setOpen]=useState(false);
   return (
-    <div className='shadow-md w-full top-0 left-0'>
+    <div className='shadow-md w-full top-0 left-0 '>
       <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-zinc-700'>
         <div className='cursor-pointer flex items-center dark:dark:text-white'>
           <Logo className='h-10 m-0 p-0 w-40'/>
