@@ -16,7 +16,6 @@ function App() {
     <Sales />
     <LandingSection>Marvel</LandingSection>
     <LandingSection>DC</LandingSection>
-    <LandingSection>Indie</LandingSection>
     <Footer />
     </>
   );
