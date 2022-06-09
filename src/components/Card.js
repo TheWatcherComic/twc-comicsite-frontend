@@ -14,7 +14,7 @@ const CardLanding = (props) => {
                     <h1 class="text-gray-900 text-xl mb-2 font-bold dark:text-white flex">{props.children.title}</h1>
                     <div>{props.children.status ? <Tag>{props.children.tag}</Tag> : ""}</div>
                 </div>
-                <h5 class="text-gray-900 text-sm mb-2 font-thin dark:text-whit">{props.children.year} | {props.children.house} </h5>
+                <h5 class="text-gray-900 text-sm mb-2 font-thin dark:text-white">{props.children.year} | {props.children.house} </h5>
                 <div className='max-w-[315px] max-h-[96px] md:max-w-[336px] md:max-h-[120px] md:overflow-hidden overflow-hidden'>
                     <p class="text-gray-700 text-base mb-4 font-light dark:text-white ">
                         This is a wider card with supportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupporting tewider card with supporting tewider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
