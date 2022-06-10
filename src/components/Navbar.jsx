@@ -9,7 +9,7 @@ import {useState} from 'react';
 
 const Navbar = () =>{
   let Links =[
-    {name:"NEW RELEASES", link:"/"},
+    {name:"NEW RELEASES", link:"<Releases.js/>"},
     {name:"DC", link:"/"},
     {name:"MARVEL", link:"/"},
     {name:"SING-IN", link:"/"},

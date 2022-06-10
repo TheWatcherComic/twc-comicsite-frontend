@@ -1,4 +1,5 @@
 import React from 'react'
+
 const Price = (props) =>{
     return(
         <div>
@@ -9,7 +10,6 @@ const Price = (props) =>{
 }
 const SalePrice = (props) => {
    let newprice = (props.children.salePer / 100) * props.children.price;
-    console.log(props.children.salePer);
   return (
     <div className='flex flex-col'>
         <p className='dark:text-gray-400 line-through text-lg text-neutral-400'>${props.children.price}</p><p className='dark:text-white text-4xl'>${newprice}</p>
