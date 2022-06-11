@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 import Allcomics from "./components/AllComics";
 import Landing from "./components/Landing";
@@ -23,6 +23,7 @@ function App() {
     ]; 
     let [open,setOpen]=useState(false);
     return (
+      <>
       <Router>
       <div className='shadow-md w-full top-0 left-0 '>
         <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-black'>
@@ -52,7 +53,8 @@ function App() {
           <Route path="/marvel" element={<Allcomics/>}/>
           <Route path="/dc" element={<Allcomics/>}/>
         </Routes>
-      </Router>
+      </Router>,
+      </>
     
     )
 }

@@ -15,8 +15,10 @@ const CardLanding = (props) => {
                     <div>{props.children.status ? <Tag>{props.children.tag}</Tag> : ""}</div>
                 </div>
                 <h5 class="text-gray-900 text-sm mb-2 font-thin dark:text-white">{props.children.year} | {props.children.house} </h5>
-                <div className='max-w-[315px] max-h-[96px] md:max-w-[336px] md:max-h-[120px] md:overflow-hidden overflow-hidden'>
-                    <p class="text-gray-700 text-base mb-4 font-light dark:text-white text-justify ">{props.children.description}</p>
+                <div className='w-[315px] h-[96px] md:max-w-[336px] md:max-h-[120px] md:overflow-hidden overflow-hidden'>
+                    <p class="text-gray-700 text-base mb-4 font-light dark:text-white ">
+                        {props.children.description}
+                    </p>
                 </div>
                 <div className='flex felx-row'>
                     <Star/><Star/><Star/><Star/><Star/>
@@ -30,6 +32,7 @@ const CardLanding = (props) => {
             </div>
         </div>
     </div>
+    
   )
 }
 const AllCard = (props) => {
