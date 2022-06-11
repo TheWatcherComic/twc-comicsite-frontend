@@ -37,7 +37,7 @@ function App() {
           w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-19 opacity-100':'top-[-490px] md:opacity-100 opacity-0'} dark:bg-black`}>
             {
               Links.map((link)=>(
-                <li key={link.name} className="md:ml-8 text-base md:my-0 my-7">
+                <li key={link.name} className="md:ml-8 text-base md:my-0 my-7 dark:text-white">
                   <Link to={link.link}>{link.name}</Link>
                 </li>
               ))
