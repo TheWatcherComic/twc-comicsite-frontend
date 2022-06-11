@@ -1,5 +1,5 @@
 import React from 'react'
-import CardLanding from './Card';
+import {AllCard, CardLanding} from './Card';
 import ComicList from "./ComicsList";
 
 
@@ -25,11 +25,9 @@ const LandingSection = (props) => {
         </div>
 
         <div class="max-w-7xl mx-auto md:h-96 md:items-center flex flex-row overflow-x-auto gap-5 md:gap-10  scroll-smooth snap-x snap-mandatory  md:snap-x md:snap-mandatory ">
-
-        {newarray.slice(-5).map((comic)=>(
-
-            <CardLanding>{comic}</CardLanding> 
-        ))}
+            {newarray.slice(-5).map((comic)=>(
+                <CardLanding>{comic}</CardLanding> 
+            ))}
         </div>
     </div>
       

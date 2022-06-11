@@ -3,13 +3,13 @@ import {ReactComponent as Logo} from '../logo.svg';
 import {MenuIcon} from '@heroicons/react/outline';
 import Button from './Button';
 import {useState} from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 
 const Navbar = () =>{
   let Links =[
-    {name:"NEW RELEASES", link:"<Releases.js/>"},
+    {name:"NEW RELEASES", link:"/"},
     {name:"DC", link:"/"},
     {name:"MARVEL", link:"/"},
     {name:"SING-IN", link:"/"},

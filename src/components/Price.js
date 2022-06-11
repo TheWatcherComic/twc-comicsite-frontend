@@ -20,9 +20,12 @@ const SalePrice = (props) => {
 const SaleTag = (props) => {
     return (
     <div className='grow' id="tag-discount">
-        <div className='bg-[#F1EB50] h-10 w-24 rounded-r-full -ml-6 flex items-center justify-center '><p className='justify-self-center text-amber-700 text-lg font-semibold'>-{props.children}%</p></div>
+        <div className='bg-[#F1EB50] hover:stroke-black hover:stroke-2 h-10 w-24 rounded-r-full -ml-6 flex items-center justify-center '><p className='justify-self-center text-black text-lg font-semibold'>-{props.children}%</p></div>
     </div>
     )
+  }
+  const newprice = (props) =>{
+      
   }
 
 export  {SalePrice,Price,SaleTag}

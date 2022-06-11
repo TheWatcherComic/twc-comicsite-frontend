@@ -4,9 +4,10 @@ import Hero from "./Hero";
 import LandingSection from "./LandingSection";
 import Navbar from "./Navbar";
 import ComicList from "./ComicsList";
+import AllComicList from "./AllComicList";
 
 
-function Landing() {
+function Allcomics() {
     /*Esto se borrara cuando tengamos BD*/
       let pagetosend= [
           {titulo: "New Realeses",tag: "NEW"},
@@ -17,13 +18,10 @@ function Landing() {
         ];
   return (
     <>
-        <Hero/>
-        {pagetosend.map((sendp)=>(
-            <LandingSection>{sendp}</LandingSection> 
-        ))}
+        <AllComicList />        
         <Footer />
     </>
   );
 }
 
-export default Landing;
+export default Allcomics

@@ -16,9 +16,7 @@ const CardLanding = (props) => {
                 </div>
                 <h5 class="text-gray-900 text-sm mb-2 font-thin dark:text-white">{props.children.year} | {props.children.house} </h5>
                 <div className='max-w-[315px] max-h-[96px] md:max-w-[336px] md:max-h-[120px] md:overflow-hidden overflow-hidden'>
-                    <p class="text-gray-700 text-base mb-4 font-light dark:text-white ">
-                        This is a wider card with supportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupportingsupporting tewider card with supporting tewider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                    </p>
+                    <p class="text-gray-700 text-base mb-4 font-light dark:text-white text-justify ">{props.children.description}</p>
                 </div>
                 <div className='flex felx-row'>
                     <Star/><Star/><Star/><Star/><Star/>
@@ -34,5 +32,32 @@ const CardLanding = (props) => {
     </div>
   )
 }
+const AllCard = (props) => {
+  return (
+    <a href='' class="flex flex-col bg-white drop-shadow-xl dark:bg-zinc-800 rounded-lg lg:w-52 cursor-pointer relative ">
+            <div className='absolute ml-6 bottom-20 left-0'>
+                {props.children.sale ? <SaleTag>{props.children.salePer}</SaleTag> : ""}
+            </div>
+            <div className='absolute ml-6 -top-4 -right-3 '>
+                {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
+            </div>
+            <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.image} alt="" />
+            <div className='pl-2 pt-2'>
+                <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.title}</h1>
+            </div>
 
-export default CardLanding
+            <div className='flex flex-row justify-between items-center px-2'>
+
+                <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">${props.children.price}</h1>
+                <dd class="text-amber-500 flex mb-2 items-center dark:text-amber-500">
+                    <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500">
+                    <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>{props.children.starRating} <span class="text-slate-400 font-normal">(1)</span></span>
+                </dd> 
+            </div>
+    </a>
+  )
+}
+
+export  {CardLanding,AllCard}
