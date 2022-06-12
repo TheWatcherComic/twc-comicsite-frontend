@@ -14,7 +14,7 @@ const CardLanding = (props) => {
             <div className=' bg-gradient-to-t from-black/100 via-black/75 to-black/1  md:hidden w-full h-20 max-h-20 bottom-0 left-0 absolute flex flex-col justify-center '>
                 <h1 class="text-gray-900 text-xl ml-2 font-bold dark:text-white flex md:hidden">{props.children.title}</h1>
             </div>
-            <img class="w-full max-h-80 md:h-auto object-cover md:w-48  rounded-lg md:rounded-none md:rounded-l-lg" src={props.children.image} alt="" />
+            <img class="w-full object-contain max-h-80 md:h-auto md:object-cover md:w-48  rounded-lg md:rounded-none md:rounded-l-lg" src={props.children.image} alt="" />
             <div class="p-6 md:flex md:flex-col justify-start hidden">
                 <div className='flex flex-row justify-between'>
                     <h1 class="text-gray-900 text-xl mb-2 font-bold dark:text-white flex">{props.children.title}</h1>
