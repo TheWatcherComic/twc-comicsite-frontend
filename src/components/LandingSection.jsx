@@ -1,6 +1,7 @@
 import React from 'react'
 import {AllCard, CardLanding} from './Card';
 import ComicList from "./ComicsList";
+import ComicData from '../COMICS.json';
 
 
 

@@ -3,19 +3,21 @@ import {ReactComponent as Logo} from '../logo.svg';
 import {MenuIcon} from '@heroicons/react/outline';
 import Button from './Button';
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
-
+import {BrowserRouter as Router, Routes,Route,Link} from "react-router-dom";
+import Allcomics from "./AllComics";
+import Landing from "./Landing";
 
 
 const Navbar = () =>{
   let Links =[
-    {name:"NEW RELEASES", link:"/"},
-    {name:"DC", link:"/"},
-    {name:"MARVEL", link:"/"},
-    {name:"SING-IN", link:"/"},
+    {name:"HOME", link:"/"},
+    {name:"NEW RELEASES", link:"/new-releases"},
+    {name:"DC", link:"/dc"},
+    {name:"MARVEL", link:"/marvel"},
   ]; 
   let [open,setOpen]=useState(false);
   return (
+    <Router>
     <div className='shadow-md w-full top-0 left-0 '>
       <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-black'>
         <div className='cursor-pointer flex items-center dark:dark:text-white'>
@@ -29,15 +31,27 @@ const Navbar = () =>{
         w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-19 opacity-100':'top-[-490px] md:opacity-100 opacity-0'} dark:bg-black`}>
           {
             Links.map((link)=>(
-              <li key={link.name} className="md:ml-8 text-base md:my-0 my-7">
-                <a href={link} className="text-gray-800 hover:text-gray-400 duration-500 dark:text-white">{link.name}</a>
+              <li key={link.name} className="md:ml-8 text-base md:my-0 my-7 dark:text-white">
+                <Link to={link.link}>{link.name}</Link>
               </li>
             ))
           }
-          <Button>Sign-in</Button>
+          <li  className="md:ml-8 text-base md:my-0 my-7 dark:text-white">
+            <Link to="/sign-in">
+            <Button>Sign-in</Button>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
+    <Routes>
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/new-releases" element={<Allcomics/>}/>
+        <Route path="/marvel" element={<Allcomics/>}/>
+        <Route path="/dc" element={<Allcomics/>}/>
+        <Route path="/sign-in" element={<Landing/>}/>
+      </Routes>
+    </Router>
 
   
   )

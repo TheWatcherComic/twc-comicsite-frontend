@@ -37,14 +37,14 @@ const CardLanding = (props) => {
 }
 const AllCard = (props) => {
   return (
-    <a href='' class="flex flex-col bg-white drop-shadow-xl dark:bg-zinc-800 rounded-lg lg:w-52 cursor-pointer relative ">
+    <a href='' class="flex flex-col drop-shadow-xl rounded-lg lg:w-52 cursor-pointer relative ">
             <div className='absolute ml-6 bottom-20 left-0'>
                 {props.children.sale ? <SaleTag>{props.children.salePer}</SaleTag> : ""}
             </div>
             <div className='absolute ml-6 -top-4 -right-3 '>
                 {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
             </div>
-            <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.image} alt="" />
+            <img class="w-full  max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.image} alt="" />
             <div className='pl-2 pt-2'>
                 <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.title}</h1>
             </div>
@@ -56,7 +56,7 @@ const AllCard = (props) => {
                     <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500">
                     <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span>{props.children.starRating} <span class="text-slate-400 font-normal">(1)</span></span>
+                    <span>{props.children.starRating} <span class="text-slate-50 font-normal">(1)</span></span>
                 </dd> 
             </div>
     </a>
