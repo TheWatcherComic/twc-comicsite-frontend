@@ -10,7 +10,6 @@ import Landing from "./Landing";
 
 const Navbar = () =>{
   let Links =[
-    {name:"HOME", link:"/"},
     {name:"NEW RELEASES", link:"/new-releases"},
     {name:"DC", link:"/dc"},
     {name:"MARVEL", link:"/marvel"},
@@ -21,7 +20,7 @@ const Navbar = () =>{
     <div className='shadow-md w-full top-0 left-0 '>
       <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-black'>
         <div className='cursor-pointer flex items-center dark:dark:text-white'>
-          <Logo className='h-10 m-0 p-0 w-40'/>
+          <Link to="/home"><Logo className='h-10 m-0 p-0 w-40'/></Link>
         </div>
         <div onClick={()=>setOpen(!open)}
         className='text-3xl absolute right-8 top-5 cursor-pointer md:hidden'>
@@ -46,6 +45,7 @@ const Navbar = () =>{
     </div>
     <Routes>
         <Route path="/" element={<Landing/>}/>
+        <Route path="/home" element={<Landing/>}/>
         <Route path="/new-releases" element={<Allcomics/>}/>
         <Route path="/marvel" element={<Allcomics/>}/>
         <Route path="/dc" element={<Allcomics/>}/>
