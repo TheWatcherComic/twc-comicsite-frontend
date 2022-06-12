@@ -2,8 +2,6 @@ import React from "react";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import LandingSection from "./LandingSection";
-import Navbar from "./Navbar";
-import ComicList from "./ComicsList";
 
 
 function Landing() {
