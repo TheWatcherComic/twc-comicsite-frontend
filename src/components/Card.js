@@ -7,7 +7,7 @@ import { Price,SalePrice,SaleTag } from './Price';
 const CardLanding = (props) => {
   return (
     <div class="flex-none snap-always snap-start md:snap-always md:snap-start">
-        <div class="flex flex-row w-full max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-zinc-800 relative ">
+        <div class="flex flex-row md:w-full w-[210px]  max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-zinc-800 relative ">
             <div  className='absolute -top-2 -right-2 md:hidden '>
                 <div>{props.children.status ? <Tag>{props.children.tag}</Tag> : ""}</div>
             </div>
