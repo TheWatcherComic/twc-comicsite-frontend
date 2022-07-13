@@ -1,11 +1,18 @@
 import React from 'react';
 import {AllCard} from './Card';
 import ComicData from '../COMICS.json';
-import { useState } from 'react';
+import {useState, useEffect} from 'react';
 
 const AllComicList = () => {
 
   const [searchTerm, setSeacrhTerm] = useState('');
+
+  const [items,setItems] = useState([]);
+  const [visible, setVisible] = useState(3);
+
+  useEffect(()=>{
+      fetch('../COMICS.json').then((res) => res.json()).then((data) => console.log(data));
+  },[]);
 
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40  ">

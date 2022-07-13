@@ -8,22 +8,10 @@ const Footer = () => {
             <div class="sm:flex sm:mt-8">
                 <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-700 dark:text-white  uppercase mb-2">New Re</span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-700 dark:text-white  uppercase mt-4 md:mt-0 mb-2">Marvel</span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-bold text-gray-700 dark:text-white  uppercase mt-4 md:mt-0 mb-2">DC</span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
-                        <span class="my-2"><a href="#" class="text-zinc-700 dark:text-white  text-md hover:text-blue-500">link 1</a></span>
                     </div>
                 </div>
             </div>

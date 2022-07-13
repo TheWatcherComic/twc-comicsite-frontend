@@ -1,8 +1,9 @@
 import React from 'react'
-import ComicList from "./ComicsList";
+import ComicData from '../COMICS.json';
+
 
 const Hero = () => {
-  let array = ComicList;
+  let array = ComicData;
   let newarray = [];
   let randomNum = Math.floor((Math.random() * 3));
   array.forEach(array => {
@@ -29,7 +30,6 @@ const Hero = () => {
             <span>{newarray[randomNum].starRating} <span class="text-slate-400 font-normal">(1)</span></span>
           </dd>      
         </dl>
-        
         <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 text-justify dark:text-slate-400  lg:max-h-535 lg:max-h-240">
         {newarray[randomNum].description}
         <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
         </p>
       </div>
-</div>
+    </div>
   )
 }
 

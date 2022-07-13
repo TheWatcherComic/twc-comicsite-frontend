@@ -26,6 +26,8 @@ const LandingSection = (props) => {
         var slider = document.getElementById('slider')
         slider.scrollLeft = slider.scrollLeft + 500;
     }
+
+   
     
   return (
     

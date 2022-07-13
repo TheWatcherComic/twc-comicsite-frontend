@@ -6,6 +6,8 @@ import {useState} from 'react';
 import {BrowserRouter as Router, Routes,Route,Link} from "react-router-dom";
 import Allcomics from "./AllComics";
 import Landing from "./Landing";
+import SignIn from './SignIn';
+import ComicBuy from './ComicBuy';
 
 
 const Navbar = () =>{
@@ -48,8 +50,8 @@ const Navbar = () =>{
         <Route path="/home" element={<Landing/>}/>
         <Route path="/new-releases" element={<Allcomics/>}/>
         <Route path="/marvel" element={<Allcomics/>}/>
-        <Route path="/dc" element={<Allcomics/>}/>
-        <Route path="/sign-in" element={<Landing/>}/>
+        <Route path="/dc" element={<ComicBuy/>}/>
+        <Route path="/sign-in" element={<SignIn/>}/>
       </Routes>
     </Router>
 
