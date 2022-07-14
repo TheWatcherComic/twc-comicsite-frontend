@@ -19,7 +19,7 @@ const Hero = () => {
           <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">{newarray[randomNum].house}</p>
         </div>
         <div class="grid gap-4 col-start-1 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-          <img src={newarray[randomNum].image} alt="" class="w-full h-96 object-cover rounded-lg sm:h-69 sm:col-span-full lg:col-span-full lg:object-contain" loading="lazy" />
+          <img src={newarray[randomNum].image} alt="" class="w-full h-96 object-cover rounded-lg sm:h-69 sm:col-span-full lg:col-span-full lg:object-contain drop-shadow-lg" loading="lazy" />
         </div>
         <dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2">
           <dt class="sr-only">Reviews</dt>
