@@ -2,23 +2,38 @@ import React from "react";
 import Footer from "./Footer";
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
-export function Register() {
+function Register() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  console.log("TEST");
 
-  const { singup } = useAuth();
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState();
 
   const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    singup(user.email, user.password);
+    setError('');
+    try {
+      await signup(user.email, user.password);
+      navigate("/");
+    } catch (error) {
+        console.log(error.code);
+        if(error.code === "auth/invalid-email"){
+            setError("Invalid email");
+        };
+        if(error.code === "auth/weak-password"){
+            setError("Password should be at least 6 characters");
+        };
+      setError(error.message);
+    }
   };
 
   return (
@@ -29,6 +44,15 @@ export function Register() {
             <h1 class="mb-8 text-3xl text-center font-bold dark:text-white">
               Sign up
             </h1>
+            {error && (
+              <div
+                class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+                role="alert"
+              >
+                <span class="font-medium">Warning!</span> {error}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit}>
               <input
                 type="email"
@@ -69,3 +93,5 @@ export function Register() {
     </>
   );
 }
+
+export default Register;

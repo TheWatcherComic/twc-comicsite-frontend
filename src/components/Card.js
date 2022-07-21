@@ -58,7 +58,7 @@ const AllCard = (props) => {
             <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">${props.children.price}</h1>
             <dd class="text-amber-500 flex mb-2 items-center dark:text-amber-500">
                 <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500"><path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                <span>{props.children.starRating} <span class="text-slate-50 font-normal">(1)</span></span>
+                <span>{props.children.starRating}</span>
             </dd> 
         </div>
     </a>
