@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/authContext";
+import { CartProvider,  } from "./context/cartContext";
 import Allcomics from "./components/AllComics";
 import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
@@ -22,8 +23,10 @@ function App() {
   let [open, setOpen] = useState(false);
   return (
     <>
+    <CartProvider>
       <Router>
         <AuthProvider>
+          
           <Routes>
             <Route path="/" element={
             <ProtectedRoute>
@@ -44,8 +47,10 @@ function App() {
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
           </Routes>
+
         </AuthProvider>
       </Router>
+      </CartProvider>
     </>
   );
 }

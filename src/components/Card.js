@@ -5,6 +5,7 @@ import Button from './Button';
 import { Price,SalePrice,SaleTag } from './Price';
 
 const CardLanding = (props) => {
+    var star = parseInt(props.children.starRating);
   return (
     <div class="flex-none snap-always snap-start md:snap-always md:snap-start">
         <div class="flex flex-row w-[210px] md:w-full md:max-h-72 max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-zinc-800 relative ">
@@ -27,13 +28,13 @@ const CardLanding = (props) => {
                     </p>
                 </div>
                 <div className='flex felx-row'>
-                    <Star/><Star/><Star/><Star/><Star/>
+                    { <Star/>}
                 </div>
                 {props.children.sale ? "" : <br/>}
                 <div className='flex felx-row justify-end items-end gap-5 md:gap-0 w-full'>
                     {props.children.sale ? <SaleTag>{props.children.salePer}</SaleTag> : ""}
-                    {props.children.sale ? <SalePrice>{props.children}</SalePrice> : <Price>{props.children}</Price> }    
-                    <Button><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></Button>
+                    {props.children.sale ? <SalePrice>{props.children}</SalePrice> : <Price>{props.children}</Price> }  
+                    <button onClick={()=>console.log(props.children)} className='bg-red-500 text-white py-2 px-6 rounded-lg md:ml-8 hover:bg-red-400 duration-500'><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></button>
                 </div>
             </div>
         </div>
@@ -43,14 +44,14 @@ const CardLanding = (props) => {
 }
 const AllCard = (props) => {
   return (
-    <a href='' class="flex flex-col drop-shadow-xl rounded-lg lg:w-52 cursor-pointer relative ">
+    <a href='' class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
         <div className='absolute ml-6 bottom-20 left-0'>
             {props.children.sale ? <SaleTag>{props.children.salePer}</SaleTag> : ""}
         </div>
         <div className='absolute ml-6 -top-4 -right-3 '>
             {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
         </div>
-        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.image} alt="" />
+        <img class="w-full max-h-80 md:min-h-80 object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.image} alt="" />
         <div className='pl-2 pt-2'>
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.title}</h1>
         </div>
