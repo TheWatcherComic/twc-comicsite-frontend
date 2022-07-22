@@ -69,17 +69,16 @@ const Navbar = () => {
           >
             {Links.map((link) => (
               <li
-                onClick={navigate(link.link)}
                 key={link.name}
                 className="md:ml-8 text-base md:my-0 my-7 dark:text-white"
               >
                 <Link to={link.link}>{link.name}</Link>
               </li>
             ))}
-            <li className="md:ml-8 text-base md:my-0 my-7 dark:text-white">
+            <li className="w-fit md:ml-8 text-base md:my-0 my-7 dark:text-white">
               <div class="flex justify-center">
                 <div class="relative inline-block ">
-                  <button class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none"
+                  <button class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-black dark:border dark:border-zinc-900 focus:outline-none"
                   onClick={handleDropDown}
                   >
                     <span class="mx-1">{user.displayName || user.email}</span>
@@ -98,7 +97,7 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <div class="absolute right-10 z-20 w-56 py-2 mt-5 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800 hidden" id="dropDown">
+              <div className={`absolute right-10 z-20 w-56 py-2 mt-5 overflow-hidden bg-white rounded-md shadow-xl dark:bg-zinc-900 hidden`} id="dropDown">
                 <a
                   href="#"
                   class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
@@ -118,7 +117,7 @@ const Navbar = () => {
                   </div>
                 </a>
 
-                <hr class="border-gray-200 dark:border-gray-700 " />
+                <hr class="border-gray-200 dark:border-zinc-500 " />
 
                 <a
                   href="#"
@@ -133,15 +132,7 @@ const Navbar = () => {
                 >
                   Settings
                 </a>
-
-                <a
-                  href="#"
-                  class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  Keyboard shortcuts
-                </a>
-
-                <hr class="border-gray-200 dark:border-gray-700 " />
+                <hr class="border-gray-200 dark:border-zinc-500 " />
 
                 <a
                   href="#"
