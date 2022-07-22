@@ -19,7 +19,7 @@ const Hero = () => {
           <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">{newarray[randomNum].house}</p>
         </div>
         <div class="grid gap-4 col-start-1 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-          <img src={newarray[randomNum].image} alt="" class="w-full h-96 object-cover rounded-lg sm:h-69 sm:col-span-full lg:col-span-full lg:object-contain" loading="lazy" />
+          <img src={newarray[randomNum].image} alt="" class="w-full h-96 object-cover rounded-lg sm:h-69 sm:col-span-full lg:col-span-full lg:object-contain drop-shadow-lg" loading="lazy" />
         </div>
         <dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2">
           <dt class="sr-only">Reviews</dt>
@@ -27,7 +27,7 @@ const Hero = () => {
             <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500">
               <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span>{newarray[randomNum].starRating} <span class="text-slate-400 font-normal">(1)</span></span>
+            <span>{newarray[randomNum].starRating}</span>
           </dd>      
         </dl>
         <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 text-justify dark:text-slate-400  lg:max-h-535 lg:max-h-240">
