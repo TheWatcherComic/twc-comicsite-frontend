@@ -15,6 +15,7 @@ function Allcomics(props) {
   return (
     <>
       <Navbar />
+      <AllComicList />
       <Footer />
     </>
   );
