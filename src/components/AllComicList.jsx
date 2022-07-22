@@ -9,15 +9,28 @@ const AllComicList = () => {
 
   const [items,setItems] = useState([]);
   const [visible, setVisible] = useState(3);
+  const [ComicData1, setComics] =  useState([]);
 
-  useEffect(()=>{
-      fetch('../COMICS.json').then((res) => res.json()).then((data) => console.log(data));
-  },[]);
+  useEffect(() => {
+    const fetchComics = async () => {
+        const res = await fetch('http://localhost:5000/api/getAllComics', {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+        });
+        const info = await res.json();
+        //console.log(info.data);
+        setComics(info.data)
+    }
+    fetchComics()
+}, [])
 
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40  ">
     <div className=' flex flex-col   md:flex md:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
-        <h1 className='font-extrabold text-3xl dark:text-white'>All comic list</h1>
+        <h1 className='font-extrabold text-3xl dark:text-white'> comic list</h1>
       <div class="flex justify-center">
         <div class="w-full sm:w-72 md:w-72 lg:w-96">
             <div class="input-group relative flex flex-row items-stretch w-full mb-4">
@@ -27,10 +40,10 @@ const AllComicList = () => {
       </div>
     </div>
     <div class="max-w-7xl mx-auto h-full md:items-center py-10 px-5 grid grid-cols-2 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  overflow-y-auto gap-5 md:gap-10  scroll-smooth ">
-        {ComicData.filter((val)=>{
+        {ComicData1.filter((val)=>{
           if (searchTerm === ""){
             return val;
-          }else if (val.title.toLocaleLowerCase().includes(searchTerm.toLowerCase()) || val.house.toLocaleLowerCase().includes(searchTerm.toLowerCase())){
+          }else if (val.com_name.toLocaleLowerCase().includes(searchTerm.toLowerCase()) || val.com_house.toLocaleLowerCase().includes(searchTerm.toLowerCase())){
             return val;
           }
         }).map((val,key)=>{
