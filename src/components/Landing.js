@@ -4,6 +4,8 @@ import Hero from "./Hero";
 import LandingSection from "./LandingSection";
 import { useContext } from "react";
 import { authContext, useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function Landing() {
   /*Esto se borrara cuando tengamos BD*/
@@ -15,11 +17,18 @@ function Landing() {
     { titulo: "DC", tag: "", house: "DC" },
   ];
 
-  const authContext = useAuth();
-  console.log(authContext);
+  const { user, logout, loading } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/sign-in");
+  };
+  console.log(user);
 
   return (
     <>
+      <Navbar />
       <Hero />
       {pagetosend.map((sendp) => (
         <LandingSection>{sendp}</LandingSection>

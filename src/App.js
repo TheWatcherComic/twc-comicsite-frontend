@@ -11,61 +11,33 @@ import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
 import ComicBuy from "./components/ComicBuy";
 import Register from "./components/Register";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "NEW RELEASES", link: "/new-releases" },
-    { name: "DC", link: "/dc" },
-    { name: "MARVEL", link: "/marvel" },
+    { name: "All Comics", link: "/all-comics" },
   ];
   let [open, setOpen] = useState(false);
   return (
     <>
       <Router>
-        <div className="shadow-md w-full top-0 left-0 ">
-          <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-black">
-            <div className="cursor-pointer flex items-center dark:dark:text-white">
-              <Link to="/home">
-                <Logo className="h-10 m-0 p-0 w-40" />
-              </Link>
-            </div>
-            <div
-              onClick={() => setOpen(!open)}
-              className="text-3xl absolute right-8 top-5 cursor-pointer md:hidden"
-            >
-              <MenuIcon
-                name={open ? "close" : "menu"}
-                className="h-5 w-5 dark:text-white"
-              />
-            </div>
-            <ul
-              className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[1] left-0
-        w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-          open ? "top-19 opacity-100" : "top-[-490px] md:opacity-100 opacity-0"
-        } dark:bg-black`}
-            >
-              {Links.map((link) => (
-                <li
-                  key={link.name}
-                  className="md:ml-8 text-base md:my-0 my-7 dark:text-white"
-                >
-                  <Link to={link.link}>{link.name}</Link>
-                </li>
-              ))}
-              <li className="md:ml-8 text-base md:my-0 my-7 dark:text-white">
-                <Link to="/sign-in">
-                  <Button>Sign-in</Button>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Landing />} />
-            <Route path="/new-releases" element={<Allcomics />} />
+            <Route path="/" element={
+            <ProtectedRoute>
+                <Landing />
+              </ProtectedRoute>} />
+            <Route path="/home" element={
+              <ProtectedRoute>
+                <Landing />
+              </ProtectedRoute>
+            } />
+            <Route path="/all-comics" element={
+              <ProtectedRoute>
+                <Allcomics />
+              </ProtectedRoute>
+            } />
             <Route path="/marvel" element={<Allcomics />} />
             <Route path="/dc" element={<ComicBuy />} />
             <Route path="/sign-in" element={<SignIn />} />

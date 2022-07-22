@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import NavbarPublic from "./NavbarPublic";
 
 function Register() {
   const [user, setUser] = useState({
@@ -38,6 +39,7 @@ function Register() {
 
   return (
     <>
+    <NavbarPublic />
       <div className="flex flex-col justify-center items-center pt-20">
         <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div class="bg-zinc-50 dark:bg-zinc-800 px-6 py-8 rounded shadow-md text-black w-full">
