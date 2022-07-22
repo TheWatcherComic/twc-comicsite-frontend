@@ -13,6 +13,7 @@ import ComicBuy from "./components/ComicBuy";
 import Register from "./components/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
+
 function App() {
   let Links = [
     { name: "HOME", link: "/" },
