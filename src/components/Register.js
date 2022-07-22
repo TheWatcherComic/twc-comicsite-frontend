@@ -57,6 +57,14 @@ function Register() {
 
             <form onSubmit={handleSubmit}>
               <input
+                type="text"
+                class="block border border-zinc-100 dark:border-zinc-700 w-full p-2 rounded mb-5 dark:bg-zinc-900 dark:text-white"
+                name="displayName"
+                placeholder="User name"
+                onChange={handleChange}
+                id="username-form"
+              />
+              <input
                 type="email"
                 class="block border border-zinc-100 dark:border-zinc-700 w-full p-2 rounded mb-5 dark:bg-zinc-900 dark:text-white"
                 name="email"

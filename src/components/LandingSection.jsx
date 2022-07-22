@@ -3,8 +3,6 @@ import {CardLanding} from './Card';
 import ComicData from '../COMICS.json';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/outline';
 
-
-
 const LandingSection = (props) => {
     let array = ComicData;
     let arrtag = props.children.tag;
@@ -26,8 +24,6 @@ const LandingSection = (props) => {
         var slider = document.getElementById('slider')
         slider.scrollLeft = slider.scrollLeft + 500;
     }
-
-   
     
   return (
     

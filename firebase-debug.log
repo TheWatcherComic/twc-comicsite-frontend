@@ -1,0 +1,21 @@
+[debug] [2022-07-15T01:04:29.942Z] ----------------------------------------------------------------------
+[debug] [2022-07-15T01:04:29.943Z] Command:       /opt/homebrew/Cellar/node/18.0.0/bin/node /opt/homebrew/bin/firebase init
+[debug] [2022-07-15T01:04:29.943Z] CLI Version:   11.2.2
+[debug] [2022-07-15T01:04:29.943Z] Platform:      darwin
+[debug] [2022-07-15T01:04:29.943Z] Node Version:  v18.0.0
+[debug] [2022-07-15T01:04:29.944Z] Time:          Thu Jul 14 2022 20:04:29 GMT-0500 (Eastern Standard Time)
+[debug] [2022-07-15T01:04:29.944Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-15T01:04:29.947Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-15T01:04:29.947Z] > authorizing via signed-in user (albeniz1111@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/albenizvargas/Projects/twc-comicsite-frontend
+
