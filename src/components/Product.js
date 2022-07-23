@@ -18,7 +18,7 @@ const ProductShow = (props) => {
             const token = await auth.currentUser.getIdToken();
             const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children});
             
-            const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/pagosbg/url', {
+           /* const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/pagosbg/url', {
                   method: 'POST',
                   headers: {
                     authorization: `Bearer ${token}`,
@@ -28,11 +28,11 @@ const ProductShow = (props) => {
                   body:{
                         subtotal: data.data[0].com_price,
                         comicIds: data.data[0].com_id}
-                    });
+                    }); */
 
-                    const info = await res.json();
+                    //const info = await res.json();
                     setComics2(data.data)
-                    setUrl(info)
+                    // setUrl(info)
             }
         fetchComics()
 
@@ -41,6 +41,7 @@ const ProductShow = (props) => {
     let newarray = ComicData? ComicData[0]:null ;
 
     console.log(urlYappy) ;
+    console.log(ComicData) ;
 
 
 
