@@ -24,10 +24,14 @@ const ViewerC = (props) => {
       }
     }
   }
+  console.log(newarray.length);
+
 
   const handleNext = () => {
     if (conta < newarray.length) {
       conta = conta + 1;
+    console.log(conta);
+
     }
     document.getElementById("test").src = newarray[conta];
   };
