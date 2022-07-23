@@ -3,11 +3,21 @@ import Tag from './Tag';
 import Star from './Star';
 import Button from './Button';
 import { Price,SalePrice,SaleTag } from './Price';
-import {CartContext} from "../context/cartContext"
+import {CartContext} from "../context/cartContext";
+import { useNavigate } from "react-router-dom";
+import ComicBuy from './ComicBuy';
+
 
 const CardLanding = (props) => {
     var star = parseInt(props.children.starRating);
     const {addItemToCart} = useContext(CartContext);
+    const navigate = useNavigate();
+
+    const handleComicInfo = () =>{
+        <ComicBuy>{props.children}</ComicBuy>
+        navigate("/comic-buy/" + props.children.id);
+    }
+
   return (
     <div class="flex-none snap-always snap-start md:snap-always md:snap-start">
         <div class="flex flex-row w-[210px] md:w-full md:max-h-72 max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-zinc-800 relative ">
@@ -36,7 +46,7 @@ const CardLanding = (props) => {
                 <div className='flex felx-row justify-end items-end gap-5 md:gap-0 w-full'>
                     {props.children.sale ? <SaleTag>{props.children.salePer}</SaleTag> : ""}
                     {props.children.sale ? <SalePrice>{props.children}</SalePrice> : <Price>{props.children}</Price> }  
-                    <button onClick={()=>addItemToCart(props.children)} className='bg-red-500 text-white py-2 px-6 rounded-lg md:ml-8 hover:bg-red-400 duration-500'><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></button>
+                    <button onClick={handleComicInfo} className='bg-red-500 text-white py-2 px-6 rounded-lg md:ml-8 hover:bg-red-400 duration-500'><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></button>
                 </div>
             </div>
         </div>

@@ -1,14 +1,21 @@
 import React from "react";
 import Footer from "./Footer";
 import ComicData from '../COMICS.json';
-import Product from "./Product";
+import ProductShow from "./Product";
+import { AllCard } from "./Card";
+import { Routes, Route, useParams } from 'react-router-dom';
+import Navbar from "./Navbar";
 
 
-function ComicBuy() {
+const ComicBuy= (prop)=> {
+  let { id } = useParams();
+  console.log(id);
+  
 
   return (
     <>
-      <Product />
+    <Navbar />
+      <ProductShow>{id}</ProductShow>
       <Footer />
     </>
   );

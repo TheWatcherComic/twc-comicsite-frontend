@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 import { ReactComponent as Logo } from "./logo.svg";
 import { MenuIcon } from "@heroicons/react/outline";
 import Button from "./components/Button";
@@ -40,6 +40,11 @@ function App() {
             <Route path="/all-comics" element={
               <ProtectedRoute>
                 <Allcomics />
+              </ProtectedRoute>
+            } />
+            <Route path={"/comic-buy/:id"}element={
+              <ProtectedRoute>
+                <ComicBuy />
               </ProtectedRoute>
             } />
             <Route path="/marvel" element={<Allcomics />} />
