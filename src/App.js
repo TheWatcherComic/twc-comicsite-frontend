@@ -13,6 +13,7 @@ import SignIn from "./components/SignIn";
 import ComicBuy from "./components/ComicBuy";
 import Register from "./components/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
     <CartProvider>
       <Router>
         <AuthProvider>
-          
           <Routes>
             <Route path="/" element={
             <ProtectedRoute>
@@ -47,7 +47,6 @@ function App() {
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
           </Routes>
-
         </AuthProvider>
       </Router>
       </CartProvider>

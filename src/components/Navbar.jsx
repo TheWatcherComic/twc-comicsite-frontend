@@ -39,6 +39,12 @@ const Navbar = () => {
       dropDown.classList.add("block");
       dropDown.classList.remove("hidden");
     }
+  };
+
+  const handleButton = ()=>{
+
+      alert('Hi there!');
+
   }
   const defaultPic =
     "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg";
@@ -149,8 +155,6 @@ const Navbar = () => {
                 </button>
               </div>
             </li>
-
-
           </ul>
         </div>
       </div>

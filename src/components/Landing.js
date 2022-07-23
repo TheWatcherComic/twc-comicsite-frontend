@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { authContext, useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import Cart from "./Cart";
 
 function Landing() {
   /*Esto se borrara cuando tengamos BD*/
@@ -33,6 +34,8 @@ function Landing() {
       {pagetosend.map((sendp) => (
         <LandingSection>{sendp}</LandingSection>
       ))}
+      <Cart />
+
       <Footer />
     </>
   );
