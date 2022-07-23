@@ -18,12 +18,19 @@ const ProductShow = (props) => {
             //console.log(info.data);
             setComics2(data.data)
         }
-        fetchComics()
+        fetchComics()  
+        const name = data.title;
+        const price = parseFloat(e.target.elements.price.value);
+        const { data: { url } } = await axios.post(
+          'http://localhost:3000/api/pagosbg', 
+          { name, price }
+        ); 
+
     }, [])
 
     let newarray = ComicData? ComicData[0]:null ;
 
-    const {addItemToCart} = useContext(CartContext);
+
 
   return (
     <div className='py-6 px-0 sm:p-6 md:py-10 md:px-40'>
@@ -51,7 +58,7 @@ const ProductShow = (props) => {
                         <Price>{ComicData[0]}</Price>
                     </div>
                     <div className="flex ">
-                        <button onClick={()=>addItemToCart(newarray)} type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Add to cart</button>
+                        <button  type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>
                     </div>
                 </div>
             </div>
