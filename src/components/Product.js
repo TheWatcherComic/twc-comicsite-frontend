@@ -19,12 +19,7 @@ const ProductShow = (props) => {
             setComics2(data.data)
         }
         fetchComics()  
-        const name = data.title;
-        const price = parseFloat(e.target.elements.price.value);
-        const { data: { url } } = await axios.post(
-          'http://localhost:3000/api/pagosbg', 
-          { name, price }
-        ); 
+    
 
     }, [])
 
