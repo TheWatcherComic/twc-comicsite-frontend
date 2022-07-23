@@ -6,8 +6,8 @@ import {CartContext} from "../context/cartContext";
 
 const ProductShow = (props) => {
 
-    let newarray = ComicData[props.children];
-    console.log(newarray);
+    var id = Number(props.children);
+    let newarray = ComicData[id];
 
     const {addItemToCart} = useContext(CartContext);
 

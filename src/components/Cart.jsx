@@ -7,7 +7,6 @@ const Cart = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
-  var lango = 0;
 
   const { cartItems } = useContext(CartContext);
 
@@ -16,7 +15,6 @@ const Cart = () => {
       cartItems.reduce((previous, current) => previous + current.amount, 0)
     );
   }, [cartItems]);
-
 
   const total = cartItems.reduce(
     (previous, current) => previous + current.amount * current.price,
@@ -36,7 +34,7 @@ const Cart = () => {
           {" "}
           <ShoppingCartIcon className="h-8 w-8 dark:text-black text-white" />{" "}
           <span class="top-0 left-14 absolute text-base w-8 h-8 bg-red-500 border-2 dark:border-white border-gray-800 rounded-full  flex justify-center items-center">
-            {lango}
+            {productsLength}
           </span>
         </button>
       ) : (
