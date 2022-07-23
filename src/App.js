@@ -15,11 +15,10 @@ import Register from "./components/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Cart from "./components/Cart";
 
-
 function App() {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "All Comics", link: "/all-comics" },
+    { name: "ALL COMICS", link: "/all-comics" },
   ];
   let [open, setOpen] = useState(false);
   return (

@@ -1,16 +1,35 @@
 import React from 'react';
-import ComicData from '../COMICS.json';
 import { Price } from './Price';
-
+import {useState, useEffect} from 'react';
+ 
 const ProductShow = (props) => {
     console.log(props);
+
+    const [ComicData, setComics] =  useState([]);
+
+    useEffect(() => {
+      const fetchComics = async () => {
+          const res = await fetch('http://localhost:5000/api/comicData', {
+              method: 'POST',                
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({idComic:props.children})
+          });
+          const info = await res.json();
+          console.log(info.data);
+          setComics(info.data)
+      }
+      fetchComics()
+  }, [])
 
   return (
     <div className='py-6 px-0 sm:p-6 md:py-10 md:px-40'>
         <div class="flex flex-col justify-center  md:flex-row md:gap-x-5">
             <div className="flex items-center md:shrink-0 ">
                 <div className="w-full object-cover md:w-72 lg:w-96 rounded-lg md:rounded-lg">
-                    <img src={ComicData[props.children].image} alt="" class="drop-shadow-lg md:drop-shadow-lg" loading="lazy" />
+                    <img src={ComicData[0].image} alt="" class="drop-shadow-lg md:drop-shadow-lg" loading="lazy" />
                 </div>
             </div>
             <div className="flex flex-col justify-center mx-5">

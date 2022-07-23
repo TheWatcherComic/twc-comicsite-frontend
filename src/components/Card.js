@@ -58,7 +58,7 @@ const CardLanding = (props) => {
 const AllCard = (props) => {
     const navigate = useNavigate();
     const handleComicInfo = () =>{
-        navigate("/comic-buy/" + props.children.id);
+        navigate("/comic-buy/" + props.children.com_id);
     }
   return (
     <a onClick={handleComicInfo} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
