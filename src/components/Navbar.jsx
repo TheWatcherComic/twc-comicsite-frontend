@@ -46,6 +46,8 @@ const Navbar = () => {
       alert('Hi there!');
 
   }
+
+  
   const defaultPic =
     "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg";
 
@@ -133,10 +135,10 @@ const Navbar = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/my-comics"
                   class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
-                  Settings
+                  My Comics
                 </a>
                 <hr class="border-gray-200 dark:border-zinc-500 " />
 
