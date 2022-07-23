@@ -15,6 +15,7 @@ import Register from "./components/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Cart from "./components/Cart";
 import Reader from "./components/Reader";
+import MyComics from "./components/MyComics";
 
 function App() {
   let Links = [
@@ -40,6 +41,11 @@ function App() {
             <Route path="/all-comics" element={
               <ProtectedRoute>
                 <Allcomics />
+              </ProtectedRoute>
+            } />
+            <Route path="/my-comics" element={
+              <ProtectedRoute>
+                <MyComics />
               </ProtectedRoute>
             } />
             <Route path={"/comic-buy/:id"}element={
