@@ -81,10 +81,11 @@ const AllCard = (props) => {
     </a>
   )
 }
+
 const MyCard = (props) => {
     const navigate = useNavigate();
     const handleMyComic = () =>{
-        navigate("/reader/" + props.children.id + '1');
+        navigate("/reader/" + props.children.com_id + '1');
     }
   return (
     <a onClick={handleMyComic} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">

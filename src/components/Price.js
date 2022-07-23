@@ -3,7 +3,7 @@ import React from 'react'
 const Price = (props) =>{
     return(
         <div>
-            <div className='flex flex-col'><p className='dark:text-gray-400 line-through text-lg text-neutral-400 hidden' >$</p><p className='dark:text-white text-4xl'>${props.children.price}</p></div>
+            <div className='flex flex-col'><p className='dark:text-gray-400 line-through text-lg text-neutral-400 hidden' >$</p><p className='dark:text-white text-4xl'>${props.children.com_price}</p></div>
         </div>
     )
 
