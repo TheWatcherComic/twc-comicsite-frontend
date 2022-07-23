@@ -4,7 +4,6 @@ import { Price } from './Price';
 import {CartContext} from "../context/cartContext";
 import axios from 'axios';
 
-
 const ProductShow = (props) => {
 
     var id = Number(props.children);
@@ -13,9 +12,9 @@ const ProductShow = (props) => {
 
     useEffect(() => {
         const fetchComics = async () => {
-                const { data } = await axios.post('http://localhost:5000/api/comicData',{idComic: props.children});
+                const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children});
               //  setComics2(info.data)
-            //const info = await res.json();
+            //const info = await res.json(); 
             //console.log(info.data);
             setComics2(data.data)
         }
