@@ -6,20 +6,20 @@ import { AllCard } from "./Card";
 import { Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Cart from "./Cart";
-import ViewerC from "./Viewer";
+import {ViewerC} from "./Viewer";
 
 
-const ComicBuy = () => {
-  let { id } = useParams();
+const Reader = () => {
+  let { id, chapter} = useParams();
+  let paramsSend = [id,chapter]
+  console.log(id);
 
   return (
     <>
       <Navbar />
-      <ProductShow>{id}</ProductShow>
-      <Cart />
-      <Footer />
+      <ViewerC>{paramsSend}</ViewerC>
     </>
   );
 };
 
-export default ComicBuy;
+export default Reader;

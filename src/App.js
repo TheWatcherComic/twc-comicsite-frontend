@@ -14,6 +14,7 @@ import ComicBuy from "./components/ComicBuy";
 import Register from "./components/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Cart from "./components/Cart";
+import Reader from "./components/Reader";
 
 
 function App() {
@@ -45,6 +46,11 @@ function App() {
             <Route path={"/comic-buy/:id"}element={
               <ProtectedRoute>
                 <ComicBuy />
+              </ProtectedRoute>
+            } />
+            <Route path={"/reader/:id/:chapter"}element={
+              <ProtectedRoute>
+                <Reader />
               </ProtectedRoute>
             } />
             <Route path="/marvel" element={<Allcomics />} />

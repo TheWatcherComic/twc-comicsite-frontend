@@ -5,8 +5,6 @@ import Button from './Button';
 import { Price,SalePrice,SaleTag } from './Price';
 import {CartContext} from "../context/cartContext";
 import { useNavigate } from "react-router-dom";
-import ComicBuy from './ComicBuy';
-
 
 
 const CardLanding = (props) => {
