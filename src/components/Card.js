@@ -93,7 +93,7 @@ const MyCard = (props) => {
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.com_name}</h1>
         </div>
         <div className='flex flex-row justify-between items-center px-2'>
-        <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">${parseFloat(props.children.com_price).toFixed(2)}</h1>
+        <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">Chapters: {props.children.com_chapter}</h1>
             <dd class="text-amber-500 flex mb-2 items-center dark:text-amber-500">
                 <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500"><path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 <span>{parseFloat(props.children.com_starRating).toFixed(2)}</span>

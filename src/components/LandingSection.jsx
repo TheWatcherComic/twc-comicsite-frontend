@@ -16,12 +16,12 @@ const LandingSection = (props) => {
         }
     });
 
-    const slideLeft = () =>{
-        var slider = document.getElementById('slider')
+    const slideLeft = (slideID) =>{
+        var slider = document.getElementById(`${slideID}`)
         slider.scrollLeft = slider.scrollLeft - 500;
     }
-    const slideRight = () =>{
-        var slider = document.getElementById('slider')
+    const slideRight = (slideID) =>{
+        var slider = document.getElementById(`${slideID}`)
         slider.scrollLeft = slider.scrollLeft + 500;
     }
     
@@ -34,15 +34,15 @@ const LandingSection = (props) => {
             <a className='font-extrabold text-sm mb-5 dark:text-red-500 text-red-500 hover:text-red-400 cursor-pointer transition duration-300'>See more..</a>
         </div>
         <div className='flex flex-row items-center justify-center gap-1 '>
-            <button onClick={slideLeft} className='dark:bg-black/40 h-44 flex items-center rounded-lg '>
+            <button onClick={()=>slideLeft(props.children.titulo)} className='dark:bg-black/40 h-44 flex items-center rounded-lg '>
                 <ChevronDoubleLeftIcon className='dark:text-white w-10 mx-2' />
             </button>
-            <div id={props.children.house} className="max-w-7xl mx-auto h-96 md:h-96 md:items-center flex flex-row items-center overflow-x-auto gap-5 md:gap-10  scroll-smooth snap-x snap-mandatory  md:snap-x md:snap-mandatory ">
+            <div id={props.children.titulo}  className="max-w-7xl mx-auto h-96 md:h-96 md:items-center flex flex-row items-center overflow-x-auto gap-5 md:gap-10  scroll-smooth snap-x snap-mandatory  md:snap-x md:snap-mandatory ">
                 {newarray.slice(-5).map((comic)=>(
                     <CardLanding >{comic}</CardLanding> 
                 ))}
             </div>
-            <button onClick={slideRight} className='dark:bg-black/40 h-44 flex items-center rounded-lg'>
+            <button onClick={()=>slideRight(props.children.titulo)} className='dark:bg-black/40 h-44 flex items-center rounded-lg'>
                 <ChevronDoubleRightIcon className='dark:text-white w-10 mx-2' />
             </button>
         </div>
