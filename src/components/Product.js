@@ -15,10 +15,10 @@ const ProductShow = (props) => {
             </div>
             <div className="flex flex-col justify-center mx-5">
                 <div className="flex">
-                    <h1 className='mt-5 text-xl font-bold text-slate-900 md:text-4xl dark:sm:text-white'>{ComicData[props.children].title}</h1>
+                    <h1 className='mt-5 text-xl font-bold text-slate-900 md:text-4xl dark:text-white'>{ComicData[props.children].title}</h1>
                 </div>
                 <div className="flex">
-                    <p className='mt-5 text-base text-justify font-light text-slate-900 md:text-base dark:sm:text-white text-ellipsis overflow-hidden'>{ComicData[props.children].description}</p>
+                    <p className='mt-5 text-base text-justify font-light text-slate-900 md:text-base dark:text-white text-ellipsis overflow-hidden'>{ComicData[props.children].description}</p>
                 </div>
                 <div className="flex mt-11 gap-5">
                 <div class="text-amber-500 flex items-center grow md:shrink-0 dark:text-amber-500">

@@ -8,18 +8,19 @@ import { useNavigate } from "react-router-dom";
 import ComicBuy from './ComicBuy';
 
 
+
 const CardLanding = (props) => {
     var star = parseInt(props.children.starRating);
     const {addItemToCart} = useContext(CartContext);
     const navigate = useNavigate();
 
+
     const handleComicInfo = () =>{
-        <ComicBuy>{props.children}</ComicBuy>
         navigate("/comic-buy/" + props.children.id);
     }
 
   return (
-    <div class="flex-none snap-always snap-start md:snap-always md:snap-start">
+    <div onClick={handleComicInfo} class="flex-none snap-always snap-start md:snap-always md:snap-start">
         <div class="flex flex-row w-[210px] md:w-full md:max-h-72 max-w-xl md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg dark:bg-zinc-800 relative ">
             <div  className='absolute -top-2 -right-2 md:hidden '>
                 <div>{props.children.status ? <Tag>{props.children.tag}</Tag> : ""}</div>
@@ -55,8 +56,12 @@ const CardLanding = (props) => {
   )
 }
 const AllCard = (props) => {
+    const navigate = useNavigate();
+    const handleComicInfo = () =>{
+        navigate("/comic-buy/" + props.children.id);
+    }
   return (
-    <a href='' class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
+    <a onClick={handleComicInfo} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
         <div className='absolute ml-6 bottom-20 left-0'>
             {props.children.com_descountCheck ? <SaleTag>{props.children.com_descountValue}</SaleTag> : ""}
         </div>

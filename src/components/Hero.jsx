@@ -1,5 +1,7 @@
 import React from 'react'
 import ComicData from '../COMICS.json';
+import { useNavigate } from "react-router-dom";
+
 
 
 const Hero = () => {
@@ -11,6 +13,12 @@ const Hero = () => {
         newarray.push(array);
     }
 });
+const navigate = useNavigate();
+
+
+const handleComicInfo = () =>{
+    navigate("/comic-buy/" + newarray[randomNum].id);
+}
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-8 bg-neutral-100 dark:bg-zinc-800">
       <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
@@ -33,7 +41,7 @@ const Hero = () => {
         <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 text-justify dark:text-slate-400  lg:max-h-535 lg:max-h-240">
         {newarray[randomNum].description}
         <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
-          <button type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 rounded-lg">BUY</button>
+          <button  onClick={handleComicInfo}  type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 rounded-lg">BUY</button>
         </div>
         </p>
       </div>

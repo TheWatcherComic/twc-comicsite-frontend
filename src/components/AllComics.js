@@ -2,6 +2,8 @@ import React from "react";
 import Footer from "./Footer";
 import AllComicList from "./AllComicList";
 import Navbar from "./Navbar";
+import Cart from "./Cart";
+
 
 function Allcomics(props) {
   /*Esto se borrara cuando tengamos BD*/
@@ -16,6 +18,7 @@ function Allcomics(props) {
     <>
       <Navbar />
       <AllComicList />
+      <Cart />
       <Footer />
     </>
   );
