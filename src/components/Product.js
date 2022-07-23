@@ -3,32 +3,45 @@ import ComicData from '../COMICS.json';
 import { Price } from './Price';
 import {CartContext} from "../context/cartContext";
 import axios from 'axios';
+import {auth} from '../firebase';
+import { data } from 'autoprefixer';
 
 const ProductShow = (props) => {
 
     var id = Number(props.children);
 
     const [ComicData, setComics2] =  useState(null);
+    const [urlYappy, setUrl] =  useState(null);
 
     useEffect(() => {
         const fetchComics = async () => {
-                const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children});
-              //  setComics2(info.data)
-            //const info = await res.json(); 
-            //console.log(info.data);
-            setComics2(data.data)
-        }
-        fetchComics()  
-        const name = data.title;
-        const price = parseFloat(e.target.elements.price.value);
-        const { data: { url } } = await axios.post(
-          'http://localhost:3000/api/pagosbg', 
-          { name, price }
-        ); 
+            const token = await auth.currentUser.getIdToken();
+            const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children});
+            
+            const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/pagosbg/url', {
+                  method: 'POST',
+                  headers: {
+                    authorization: `Bearer ${token}`,
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                  },
+                  body:{
+                        subtotal: data.data[0].com_price,
+                        comicIds: data.data[0].com_id}
+                    });
+
+                    const info = await res.json();
+                    setComics2(data.data)
+                    setUrl(info)
+            }
+        fetchComics()
 
     }, [])
 
     let newarray = ComicData? ComicData[0]:null ;
+
+    console.log(urlYappy) ;
+
 
 
 
