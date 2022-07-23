@@ -34,8 +34,6 @@ function Landing() {
       {pagetosend.map((sendp) => (
         <LandingSection>{sendp}</LandingSection>
       ))}
-      <Cart />
-
       <Footer />
     </>
   );

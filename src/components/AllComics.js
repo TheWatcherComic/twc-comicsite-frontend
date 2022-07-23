@@ -18,7 +18,6 @@ function Allcomics(props) {
     <>
       <Navbar />
       <AllComicList />
-      <Cart />
       <Footer />
     </>
   );

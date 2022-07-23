@@ -16,7 +16,6 @@ const ComicBuy = () => {
     <>
       <Navbar />
       <ProductShow>{id}</ProductShow>
-      <Cart />
       <Footer />
     </>
   );
