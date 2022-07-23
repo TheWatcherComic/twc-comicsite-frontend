@@ -13,7 +13,7 @@ const AllComicList = () => {
 
   useEffect(() => {
     const fetchComics = async () => {
-        const res = await fetch('http://localhost:5000/api/getAllComics', {
+        const res = await fetch('http://localhost:5000/api/comics', {
             method: 'GET',
             headers: {
               Accept: 'application/json',
