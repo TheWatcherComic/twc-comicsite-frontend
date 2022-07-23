@@ -3,13 +3,12 @@ import Tag from './Tag';
 import Star from './Star';
 import Button from './Button';
 import { Price,SalePrice,SaleTag } from './Price';
-import {CartContext} from "../context/cartContext";
 import { useNavigate } from "react-router-dom";
 
 
 const CardLanding = (props) => {
     var star = parseInt(props.children.starRating);
-    const {addItemToCart} = useContext(CartContext);
+    
     const navigate = useNavigate();
 
 

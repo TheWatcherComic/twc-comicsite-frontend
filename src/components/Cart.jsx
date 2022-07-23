@@ -7,6 +7,7 @@ const Cart = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
+
   const { cartItems } = useContext(CartContext);
 
   useEffect(() => {
@@ -19,6 +20,8 @@ const Cart = () => {
     (previous, current) => previous + current.amount * current.price,
     0
   );
+
+  console.log(productsLength);
 
   return (
     <div>

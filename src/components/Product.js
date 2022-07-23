@@ -1,8 +1,12 @@
-import React,{useState,useEffect} from 'react';
+import React, { useContext,useState,useEffect } from 'react'
+import ComicData from '../COMICS.json';
 import { Price } from './Price';
-import axios from 'axios';
- 
+import {CartContext} from "../context/cartContext";
+
+
 const ProductShow = (props) => {
+
+    var id = Number(props.children);
 
     const [ComicData, setComics2] =  useState(null);
 
@@ -16,6 +20,10 @@ const ProductShow = (props) => {
         }
         fetchComics()
     }, [])
+
+    let newarray = ComicData[0];
+
+    const {addItemToCart} = useContext(CartContext);
 
   return (
     <div className='py-6 px-0 sm:p-6 md:py-10 md:px-40'>
@@ -43,7 +51,7 @@ const ProductShow = (props) => {
                         <Price>{ComicData[0]}</Price>
                     </div>
                     <div className="flex ">
-                        <button type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">BUY</button>
+                        <button onClick={()=>addItemToCart(newarray)} type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Add to cart</button>
                     </div>
                 </div>
             </div>
