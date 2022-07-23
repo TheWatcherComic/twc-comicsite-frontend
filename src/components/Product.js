@@ -2,6 +2,7 @@ import React, { useContext,useState,useEffect } from 'react'
 import ComicData from '../COMICS.json';
 import { Price } from './Price';
 import {CartContext} from "../context/cartContext";
+import axios from 'axios';
 
 
 const ProductShow = (props) => {
@@ -21,7 +22,7 @@ const ProductShow = (props) => {
         fetchComics()
     }, [])
 
-    let newarray = ComicData[0];
+    let newarray = ComicData? ComicData[0]:null ;
 
     const {addItemToCart} = useContext(CartContext);
 
