@@ -24,7 +24,7 @@ const CardLanding = (props) => {
                 <div>{props.children.status ? <Tag>{props.children.tag}</Tag> : ""}</div>
             </div>
             <div className=' bg-gradient-to-t from-black/100 via-black/75 to-black/1  md:hidden w-full h-20 max-h-20 bottom-0 left-0 absolute flex flex-col justify-center '>
-                <h1 class="text-gray-900 text-xl ml-2 font-bold dark:text-white flex md:hidden">{props.children.title}</h1>
+                <h1 class="text-white text-lg ml-2 font-bold dark:text-white flex md:hidden">{props.children.title}</h1>
             </div>
             <img class="w-[210px] max-h-80 md:h-auto object-cover md:w-48 md:max-h-80 rounded-lg md:rounded-none md:rounded-l-lg" src={props.children.image} alt="" />
             <div class="p-6 md:flex md:flex-col justify-start hidden">
