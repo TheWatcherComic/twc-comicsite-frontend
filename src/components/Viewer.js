@@ -39,6 +39,9 @@ const ViewerC = (props) => {
 
     document.getElementById("test").src = newarray[conta];
   };
+  var dropDown = document.getElementById("bottom-navigation");
+  dropDown.classList.add("hidden");
+
 
   return (
     <div className="py-6 px-0 sm:p-6 md:py-10 md:px-40 md:h-96">

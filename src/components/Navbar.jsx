@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "../logo.svg";
-import { MenuIcon } from "@heroicons/react/outline";
+import { MenuIcon, HomeIcon, CollectionIcon, TemplateIcon, LogoutIcon } from "@heroicons/react/outline";
 import Button from "./Button";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -15,7 +15,7 @@ import { authContext, useAuth } from "../context/authContext";
 const Navbar = () => {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "All Comics", link: "/all-comics" },
+    { name: "EXPLORE", link: "/all-comics" },
   ];
   let [open, setOpen] = useState(false);
   const { user, logout, loading } = useAuth();
@@ -30,8 +30,8 @@ const Navbar = () => {
     }
   };
 
-  const handleDropDown =()=>{
-    var dropDown = document.getElementById("dropDown");
+  const handleDropDown =(prop)=>{
+    var dropDown = document.getElementById(prop);
     if(dropDown.classList.contains("block")){
       dropDown.classList.add("hidden");
       dropDown.classList.remove("block");
@@ -55,7 +55,7 @@ const Navbar = () => {
     <>
       <div className="shadow-md w-full top-0 left-0 ">
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7 dark:bg-black">
-          <div className="cursor-pointer flex items-center dark:dark:text-white">
+          <div className="cursor-pointer flex items-center justify-center dark:dark:text-white">
             <Link to="/home">
               <Logo className="h-10 m-0 p-0 w-40" />
             </Link>
@@ -66,7 +66,7 @@ const Navbar = () => {
           >
             <MenuIcon
               name={open ? "close" : "menu"}
-              className="h-5 w-5 dark:text-white"
+              className="h-5 w-5 dark:text-white hidden"
             />
           </div>
           <ul
@@ -87,7 +87,7 @@ const Navbar = () => {
               <div class="flex justify-center">
                 <div class="relative inline-block ">
                   <button class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-black dark:border dark:border-zinc-900 focus:outline-none"
-                  onClick={handleDropDown}
+                  onClick={()=>handleDropDown("dropDown")}
                   >
                     <span class="mx-1">{user.displayName || user.email}</span>
                     <svg
@@ -113,7 +113,7 @@ const Navbar = () => {
                   <img
                     class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
                     src={user.photoURL || defaultPic}
-                    alt="jane avatar"
+                    alt="Profile Picture"
                   ></img>
                   <div class="mx-1">
                     <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">
@@ -153,12 +153,85 @@ const Navbar = () => {
                   href="#"
                   class="block px-4 py-3 w-full text-left text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
-                  Sign Out
+                  Sign Out 
                 </button>
               </div>
             </li>
           </ul>
         </div>
+      </div>
+      <div class="">
+      <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow dark:bg-zinc-800 border-t-2 dark:text-white border-zinc-200 dark:border-zinc-500"> 
+          <div id="tabs" class="flex justify-between">
+            <a href="/home" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
+              <HomeIcon class="inline-block mb-1 h-7 w-10"/>
+              <span class="tab tab-home block text-xs">Home</span>
+            </a>
+            <a href="/all-comics" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
+              <TemplateIcon class="inline-block mb-1 h-7 w-10" />
+              <span class="tab tab-explore block text-xs">Explore</span>
+            </a>
+            <a href="/my-comics" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
+              <CollectionIcon class="inline-block mb-1 h-7 w-10" />
+              <span class="tab tab-whishlist block text-xs">Library</span>
+            </a>
+            <a onClick={()=>handleDropDown("dropDown-bot")} class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
+            <img
+                    class="inline-block  object-cover mx-1 rounded-full mb-1 h-7 w-7 focus:border-2 focus:border-red-500"
+                    src={user.photoURL || defaultPic}
+                    alt="Profile Picture"
+                  ></img>
+              <span class="tab tab-account block text-xs">Account</span>
+            </a>
+          </div>
+          <div className={`absolute right-2 z-20 bottom-24 w-56 py-2 mt-5 overflow-hidden bg-white rounded-md shadow-xl dark:bg-zinc-900 hidden`} id="dropDown-bot">
+                <a
+                  href="#"
+                  class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  
+                  <div class="mx-1">
+                    <h1 class="text-sm text-right font-semibold text-gray-700 dark:text-gray-200">
+                    {user.displayName || user.email}
+                    </h1>
+                    <p class="text-sm text-right text-gray-500 dark:text-gray-400">
+                    {user.email}
+                    </p>
+                  </div>
+                  <img
+                    class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
+                    src={user.photoURL || defaultPic}
+                    alt="Profile Picture"
+                  ></img>
+                </a>
+
+                <hr class="border-gray-200 dark:border-zinc-500 " />
+
+                <a
+                  href="#"
+                  class="block px-4 py-3 text-sm text-right text-gray-600 capitalize  transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  view profile
+                </a>
+
+                <hr class="border-gray-200 dark:border-zinc-500 " />
+
+                <a
+                  href="#"
+                  class="block px-4  py-3 text-sm text-right text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  Help
+                </a>
+                <button
+                  onClick={handleLogout}
+                  href="#"
+                  class="block px-4 py-3 w-full text-right text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  Sign Out
+                </button>
+              </div>
+        </section>
+
       </div>
     </>
   );
