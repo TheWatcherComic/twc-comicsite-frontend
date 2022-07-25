@@ -16,7 +16,8 @@ const ProductShow = (props) => {
     useEffect(() => {
         const fetchComics = async () => {
             const token = await auth.currentUser.getIdToken();
-            const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children});
+            const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: props.children},{
+                headers: { authorization: `Bearer ${token}`}});
             
            /* const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/pagosbg/url', {
                   method: 'POST',
