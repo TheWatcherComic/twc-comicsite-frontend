@@ -27,7 +27,7 @@ const LandingSection = (props) => {
     
   return (
     
-    <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40 ">
+    <div class="py-6 px-4 sm:p-6 lg:py-10 lg:px-40 ">
         <div className='flex flex-row justify-between items-end'>
             <h1 className='font-extrabold text-3xl mb-5 dark:text-white'>{props.children.titulo}</h1>
             
