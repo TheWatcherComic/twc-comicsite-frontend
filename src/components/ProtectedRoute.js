@@ -59,7 +59,7 @@ export function ProtectedRoute({ children }) {
             />
           </rect>
         </svg>
-        <p className="text-white mt-5 text-lg animate-bounce">Loading</p>
+        <p className="text-black dark:text-white mt-5 text-lg animate-bounce">Loading</p>
       </div>
     );
   if (!user) return <Navigate to="/sign-in" />;
