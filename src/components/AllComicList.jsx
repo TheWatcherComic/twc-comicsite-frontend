@@ -2,6 +2,8 @@ import React from 'react';
 import {AllCard} from './Card';
 import ComicData from '../COMICS.json';
 import {useState, useEffect} from 'react';
+import {auth} from '../firebase';
+
 
 const AllComicList = () => {
 
@@ -13,9 +15,11 @@ const AllComicList = () => {
 
   useEffect(() => {
     const fetchComics = async () => {
+        const token = await auth.currentUser.getIdToken();
         const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/comics', {
             method: 'GET',
             headers: {
+              authorization: `Bearer ${token}`,
               Accept: 'application/json',
               'Content-Type': 'application/json',
             },
