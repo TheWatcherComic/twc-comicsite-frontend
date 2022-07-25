@@ -14,6 +14,7 @@ const Reader = () => {
   let paramsSend = [id,chapter]
   console.log(id);
 
+
   return (
     <>
       <Navbar />

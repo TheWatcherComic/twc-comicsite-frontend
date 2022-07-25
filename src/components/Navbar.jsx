@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "../logo.svg";
-import { MenuIcon, HomeIcon, CollectionIcon, TemplateIcon, LogoutIcon } from "@heroicons/react/outline";
+import { MenuIcon, HomeIcon, CollectionIcon, TemplateIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import Button from "./Button";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -78,34 +78,16 @@ const Navbar = () => {
             {Links.map((link) => (
               <li
                 key={link.name}
-                className="md:ml-8 text-base md:my-0 my-7 dark:text-white"
+                className="md:ml-8 text-base md:my-0 my-7 dark:text-white hover:text-red-500"
               >
                 <Link to={link.link}>{link.name}</Link>
               </li>
             ))}
-            <li className="w-fit md:ml-8 text-base md:my-0 my-7 dark:text-white">
-              <div class="flex justify-center">
-                <div class="relative inline-block ">
-                  <button class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-black dark:border dark:border-zinc-900 focus:outline-none"
-                  onClick={()=>handleDropDown("dropDown")}
-                  >
-                    <span class="mx-1">{user.displayName || user.email}</span>
-                    <svg
-                      class="w-5 h-5 mx-1"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 15.713L18.01 9.70299L16.597 8.28799L12 12.888L7.40399 8.28799L5.98999 9.70199L12 15.713Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              <div className={`absolute right-10 z-20 w-56 py-2 mt-5 overflow-hidden bg-white rounded-md shadow-xl dark:bg-zinc-900 hidden`} id="dropDown">
+            <li className="md:ml-8 text-base md:my-0 my-7 dark:text-white flex flex-row items-center hover:text-red-500 " onClick={()=>handleDropDown("dropDown")}>
+              <p className="uppercase">{user.displayName || user.email}</p> <ChevronDownIcon className="w-5 ml-2 "/>
+            </li>
+            <li className="w-fit md:ml-8  text-base md:my-0 my-7 dark:text-white">
+              <div className={`absolute right-10 z-20 w-56 py-2 mt-10 overflow-hidden bg-white rounded-md shadow-xl dark:bg-zinc-900 hidden`} id="dropDown">
                 <a
                   href="#"
                   class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
@@ -162,7 +144,7 @@ const Navbar = () => {
       </div>
       <div class="">
       <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow dark:bg-zinc-800 border-t-2 dark:text-white border-zinc-200 dark:border-zinc-500"> 
-          <div id="tabs" class="flex justify-between">
+          <div id="tabs" class="flex justify-between ">
             <a href="/home" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
               <HomeIcon class="inline-block mb-1 h-7 w-10"/>
               <span class="tab tab-home block text-xs">Home</span>

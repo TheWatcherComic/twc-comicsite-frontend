@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
   let array = ComicData;
   let newarray = [];
-  let randomNum = Math.floor((Math.random() * 3));
+  let randomNum = Math.floor((Math.random() * 4));
   array.forEach(array => {
     if(array.tag === "HOT"){
         newarray.push(array);

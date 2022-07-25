@@ -8,12 +8,18 @@ import { useNavigate } from "react-router-dom";
 
 const CardLanding = (props) => {
     var star = parseInt(props.children.starRating);
+    var rating = []; 
     
     const navigate = useNavigate();
 
 
     const handleComicInfo = () =>{
         navigate("/comic-buy/" + props.children.id);
+    }
+
+    for (let index = 0; index < star; index++) {
+        rating.push(<Star/>);
+        
     }
 
 
@@ -39,7 +45,7 @@ const CardLanding = (props) => {
                     </p>
                 </div>
                 <div className='flex felx-row'>
-                    { <Star/>}
+                    { rating }
                 </div>
                 {props.children.sale ? "" : <br/>}
                 <div className='flex felx-row justify-end items-end gap-5 md:gap-0 w-full'>
