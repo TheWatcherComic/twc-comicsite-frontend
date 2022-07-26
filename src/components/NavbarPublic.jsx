@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const NavbarPublic = () =>{
   let Links =[
     { name: "HOME", link: "/" },
-    { name: "All Comics", link: "/all-comics" },
+    { name: "All Comics", link: "/all-comics/"+0 },
   ]; 
   let [open,setOpen]=useState(false);
 

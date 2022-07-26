@@ -25,7 +25,6 @@ function Landing() {
     await logout();
     navigate("/sign-in");
   };
-  console.log(user);
 
   return (
     <>

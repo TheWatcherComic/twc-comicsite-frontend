@@ -2,41 +2,49 @@ import React from 'react';
 import {AllCard} from './Card';
 import ComicData from '../COMICS.json';
 import {useState, useEffect} from 'react';
-import {auth} from '../firebase';
-import {AllComics} from '../controller/comic-controller'
+import {ComicsTag} from '../controller/comic-controller'
+import { useParams } from "react-router-dom";
+
 
 
 const AllComicList = () => {
 
   const [searchTerm, setSeacrhTerm] = useState('');
-
-  const [items,setItems] = useState([]);
-  const [visible, setVisible] = useState(3);
   const [ComicData1, setComics] =  useState([]);
+  let { id } = useParams();
+  let title="";
+
+    switch(id) {
+      case 0:
+            title="All Comics";
+        break;
+      case 1:
+            title="New Realeses";
+        break;
+      case 2:
+            title="Trending";
+        break;
+      case 3:
+            title="Sales";
+          break;
+      case 4:
+            title="Marvel";
+          break;
+      case 5:
+            title="DC";
+          break;
+    }
+
+  console.log(title);
 
   useEffect(() => {
-    const fetchComics = async () => {
-        /*const token = await auth.currentUser.getIdToken();
-        const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/comics', {
-            method: 'GET',
-            headers: {
-              authorization: `Bearer ${token}`,
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-        });
-        const info = await res.json();
-        //console.log(info.data);*/
-        setComics(await AllComics());
-
-    }
-    fetchComics()
+      const fetchComics = async () => { setComics(await ComicsTag(id)); }; fetchComics()
 }, [])
 
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40  ">
     <div className=' flex flex-col bg-neutral-100 dark:bg-black rounded-xl  md:flex md:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
-        <h1 className='font-extrabold text-3xl mb-10 md:mb-0 dark:text-white'>All Comics List</h1>
+        <h1 className='font-extrabold text-3xl mb-10 md:mb-0 dark:text-white'> {title} List</h1>
       <div class="flex justify-center">
         <div class="w-full sm:w-72 md:w-72 lg:w-96">
             <div class="input-group relative flex flex-row items-stretch w-full mb-4">

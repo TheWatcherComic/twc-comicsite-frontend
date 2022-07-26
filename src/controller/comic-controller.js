@@ -16,6 +16,18 @@ const AllComics = async () => {
     
 }
 
+const ComicsTag = async (id) => {
+
+    const token = await auth.currentUser.getIdToken();
+    const { data } = await axios.get(ALLCOMICS_ENDPOINT,{
+        headers: { authorization: `Bearer ${token}`,
+                   Accept: 'application/json',
+                  'Content-Type': 'application/json'}});
+
+    return (data.data);
+    
+}
+
 const ComicsInfo = async (id) => {
 
     const token = await auth.currentUser.getIdToken();
@@ -26,4 +38,4 @@ const ComicsInfo = async (id) => {
 
 }
 
-export  {AllComics ,ComicsInfo}
+export  {AllComics ,ComicsInfo,ComicsTag}

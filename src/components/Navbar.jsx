@@ -15,7 +15,7 @@ import { authContext, useAuth } from "../context/authContext";
 const Navbar = () => {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "EXPLORE", link: "/all-comics" },
+    { name: "EXPLORE", link: "/all-comics/"+0 },
   ];
   let [open, setOpen] = useState(false);
   const { user, logout, loading } = useAuth();

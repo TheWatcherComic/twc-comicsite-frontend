@@ -36,7 +36,7 @@ function App() {
                 <Landing />
               </ProtectedRoute>
             } />
-            <Route path="/all-comics" element={
+            <Route path="/all-comics/:id" element={
               <ProtectedRoute>
                 <Allcomics />
               </ProtectedRoute>

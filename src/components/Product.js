@@ -15,19 +15,10 @@ const ProductShow = (props) => {
     const [ComicData, setComics2] =  useState(null);
 
     useEffect(() => {
-        const fetchComics = async () => {
-                setComics2(await ComicsInfo(id));
-            }
-        fetchComics()
-
+        const fetchComics = async () => { setComics2(await ComicsInfo(id)); }; fetchComics();
     }, [])
 
-    let newarray = ComicData? ComicData[0]:null ;
-
-    console.log(ComicData) ;
-
-
-
+    //let newarray = ComicData? ComicData[0]:null ;
 
   return (
     <div className='py-6 px-0 sm:p-6 md:py-10 md:px-40'>

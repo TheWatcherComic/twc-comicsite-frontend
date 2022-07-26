@@ -9,10 +9,10 @@ const Price = (props) =>{
 
 }
 const SalePrice = (props) => {
-   let newprice = (props.children.salePer / 100) * props.children.price;
+   let newprice = (props.children.com_descountValue / 100) * props.children.com_price;
   return (
     <div className='flex flex-col'>
-        <p className='dark:text-gray-400 line-through text-lg text-neutral-400'>${props.children.price}</p><p className='dark:text-white text-4xl'>${newprice}</p>
+        <p className='dark:text-gray-400 line-through text-lg text-neutral-400'>${props.children.com_price}</p><p className='dark:text-white text-4xl'>${newprice}</p>
     </div>
   )
 }
