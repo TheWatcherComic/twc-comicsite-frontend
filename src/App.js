@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import Reader from "./components/Reader";
 import MyComics from "./components/MyComics";
 import Issues from "./components/Issues";
+import MyProfile from "./components/MyProfile";
 
 function App() {
   let Links = [
@@ -60,7 +61,11 @@ function App() {
                 <Issues />
               </ProtectedRoute>
             } />
-            <Route path="/marvel" element={<Allcomics />} />
+            <Route path={"/my-profile"}element={
+              <ProtectedRoute>
+                <MyProfile />
+              </ProtectedRoute>
+            } />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
           </Routes>

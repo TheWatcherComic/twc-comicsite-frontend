@@ -12,7 +12,7 @@ const Footer = () => {
                     <div class="flex flex-col">
                         <LogoNegative className='w-24 h-10' />
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col dark:text-white">
                         <p>Albeniz Vargas</p>
                         <p>Johan Infante</p>
                         <p>Gabriel Rodriguez</p>
