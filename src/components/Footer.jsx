@@ -1,4 +1,6 @@
 import React from 'react'
+import { ReactComponent as LogoNegative } from "../logo-negative.svg";
+
 
 const Footer = () => {
   return (
@@ -8,8 +10,12 @@ const Footer = () => {
             <div class="sm:flex sm:mt-8">
                 <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                     <div class="flex flex-col">
+                        <LogoNegative className='w-24 h-10' />
                     </div>
                     <div class="flex flex-col">
+                        <p>Albeniz Vargas</p>
+                        <p>Johan Infante</p>
+                        <p>Gabriel Rodriguez</p>
                     </div>
                     <div class="flex flex-col">
                     </div>
