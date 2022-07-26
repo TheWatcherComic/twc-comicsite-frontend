@@ -5,35 +5,18 @@ import {CartContext} from "../context/cartContext";
 import axios from 'axios';
 import {auth} from '../firebase';
 import { data } from 'autoprefixer';
+import {ComicsInfo} from '../controller/comic-controller'
+
 
 const ProductShow = (props) => {
 
     var id = Number(props.children);
 
     const [ComicData, setComics2] =  useState(null);
-    const [urlYappy, setUrl] =  useState(null);
 
     useEffect(() => {
         const fetchComics = async () => {
-            const token = await auth.currentUser.getIdToken();
-            const { data } = await axios.post('https://the-watcher-comic-backend.herokuapp.com/api/comicData',{idComic: id},{
-                headers: { authorization: `Bearer ${token}`}});
-            
-           /* const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/pagosbg/url', {
-                  method: 'POST',
-                  headers: {
-                    authorization: `Bearer ${token}`,
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                  },
-                  body:{
-                        subtotal: data.data[0].com_price,
-                        comicIds: data.data[0].com_id}
-                    }); */
-
-                    //const info = await res.json();
-                    setComics2(data.data)
-                    // setUrl(info)
+                setComics2(await ComicsInfo(id));
             }
         fetchComics()
 
@@ -41,7 +24,6 @@ const ProductShow = (props) => {
 
     let newarray = ComicData? ComicData[0]:null ;
 
-    console.log(urlYappy) ;
     console.log(ComicData) ;
 
 
