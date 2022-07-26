@@ -33,7 +33,7 @@ const AllComicList = () => {
 
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40  ">
-    <div className=' flex flex-col   md:flex md:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
+    <div className=' flex flex-col bg-neutral-100 dark:bg-black rounded-xl  md:flex md:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
         <h1 className='font-extrabold text-3xl mb-10 md:mb-0 dark:text-white'>All Comics List</h1>
       <div class="flex justify-center">
         <div class="w-full sm:w-72 md:w-72 lg:w-96">

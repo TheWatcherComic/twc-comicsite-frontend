@@ -72,7 +72,7 @@ const AllCard = (props) => {
         <div className='absolute ml-6 -top-4 -right-3 '>
             {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
         </div>
-        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.com_picture} alt="" />
+        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" loading="lazy" src={props.children.com_picture} alt="" />
         <div className='pl-2 pt-2'>
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.com_name}</h1>
         </div>
@@ -90,8 +90,9 @@ const AllCard = (props) => {
 const MyCard = (props) => {
     const navigate = useNavigate();
     const handleMyComic = () =>{
-        navigate("/reader/" + props.children.com_id +"/" +1);
+        navigate("/issues/" + props.children.com_id);
     }
+    //navigate("/reader/" + props.children.com_id +"/" +1);
   return (
     <a onClick={handleMyComic} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
         <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.com_picture} alt="" />
@@ -99,7 +100,7 @@ const MyCard = (props) => {
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.com_name}</h1>
         </div>
         <div className='flex flex-row justify-between items-center px-2'>
-        <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">Chapters: {props.children.com_chapter}</h1>
+        <h1 class="text-gray-900 text-base mb-2 font-light dark:text-white">Issues: {props.children.com_chapter}</h1>
             <dd class="text-amber-500 flex mb-2 items-center dark:text-amber-500">
                 <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-amber-500"><path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 <span>{parseFloat(props.children.com_starRating).toFixed(2)}</span>
@@ -108,5 +109,20 @@ const MyCard = (props) => {
     </a>
   )
 }
+const IssueCard = (props) => {
+    const navigate = useNavigate();
+    const handleMyComic = () =>{
+        navigate("/reader/" + props.children.id +"/" +props.children.number);
+    }
+    console.log(props.children)
+  return (
+    <a onClick={handleMyComic} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
+        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.url} alt={props.children.number} loading="lazy"/>
+        <div className=' bg-gradient-to-t rounded-lg from-black/100 via-black/75 to-black/1  w-full h-20 max-h-20 bottom-0 left-0 absolute flex flex-col justify-center '>
+                <h1 class="text-white text-lg ml-2 font-bold dark:text-white flex">Issue #{props.children.number}</h1>
+            </div>
+    </a>
+  )
+}
 
-export  {CardLanding,AllCard,MyCard}
+export  {CardLanding,AllCard,MyCard, IssueCard}

@@ -31,11 +31,11 @@ const MyComicsList = () => {
 }, [])
 
   return (
-    <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40  ">
-    <div className=' flex flex-col   md:flex md:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
-        <h1 className='font-extrabold text-3xl mb-10 md:mb-0 dark:text-white'>My Comics</h1>
+    <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40">
+    <div className=' flex flex-col bg-neutral-100 dark:bg-black rounded-xl  lg:flex lg:flex-row md:justify-between items-center lg:max-w-7xl lg:mx-auto lg:py-10 lg:px-5'>
+        <h1 className='font-extrabold text-3xl mb-5 mt-5  justify-center dark:text-white'>My library</h1>
       <div class="flex justify-center">
-        <div class="w-full sm:w-72 md:w-72 lg:w-96">
+        <div class="w-full sm:w-72 md:w-72 lg:w-96 ">
             <div class="input-group relative flex flex-row items-stretch w-full mb-4">
               <input type="text" onChange={event => {setSeacrhTerm(event.target.value)}} class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search!" aria-label="Search" aria-describedby="button-addon2"/>
             </div>

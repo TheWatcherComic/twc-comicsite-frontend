@@ -1,10 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
-import { ReactComponent as Logo } from "./logo.svg";
-import { MenuIcon } from "@heroicons/react/outline";
-import Button from "./components/Button";
 import { useState } from "react";
-import Navbar from "./components/Navbar";
 import { AuthProvider } from "./context/authContext";
 import { CartProvider,  } from "./context/cartContext";
 import Allcomics from "./components/AllComics";
@@ -16,6 +12,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import Cart from "./components/Cart";
 import Reader from "./components/Reader";
 import MyComics from "./components/MyComics";
+import Issues from "./components/Issues";
 
 function App() {
   let Links = [
@@ -58,8 +55,12 @@ function App() {
                 <Reader />
               </ProtectedRoute>
             } />
+            <Route path={"/issues/:id"}element={
+              <ProtectedRoute>
+                <Issues />
+              </ProtectedRoute>
+            } />
             <Route path="/marvel" element={<Allcomics />} />
-            <Route path="/dc" element={<ComicBuy />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/register" element={<Register />} />
           </Routes>
