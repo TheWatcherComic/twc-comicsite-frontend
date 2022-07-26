@@ -9,25 +9,30 @@ const ViewerC = (props) => {
   let array = ComicData[props.children[0]];
   let newarray = [];
   let chapter = "/" + props.children[1];
+  let pages = ComicData[props.children[0]]
 
-  for (let indexOne = 0; indexOne < 1; indexOne++) {
-    for (let indexTwo = 1; indexTwo <= array.pages[indexOne]; indexTwo++) {
+    for (let indexTwo = 1; indexTwo <= array.pages[props.children[1]]; indexTwo++) {
       if (indexTwo < 10) {
         newarray.push(array.urlImages + chapter + "/0" + indexTwo + ".jpg");
       } else if (indexTwo >= 10) {
         newarray.push(array.urlImages + chapter + "/" + indexTwo + ".jpg");
       }
-    }
   }
-  console.log(newarray.length);
 
   const handleNext = () => {
+
     if (conta < newarray.length) {
       conta = conta + 1;
-      console.log(conta);
+    document.getElementById("test").src = newarray[conta];
+
+    }
+    if (conta >= newarray.length) {
+      document.getElementById("finish-button").classList.remove("hidden")
+      document.getElementById("test").classList.add("hidden")
+      console.log("END")
+      
     }
     window.scrollTo(0, 0);
-    document.getElementById("test").src = newarray[conta];
   };
   const handleBack = () => {
     if (conta != 0) {
@@ -37,7 +42,7 @@ const ViewerC = (props) => {
 
     document.getElementById("test").src = newarray[conta];
   };
-
+//
   return (
     <div className="py-6 px-0 sm:p-6 md:py-10 md:px-40 md:h-96">
       <div class="flex flex-col justify-center items-center md:gap-x-5">
@@ -46,6 +51,7 @@ const ViewerC = (props) => {
             id="image"
             className="w-full object-cover md:w-fit rounded-lg md:rounded-lg"
           >
+            <p id="finish-button" className="dark:text-white font-black justify-center items-center cursor-pointer bg-red-500 p-8 rounded-xl mt-60 hidden" onClick={()=>window.history.go(-1)}>ISSUE FINISHED, GO BACK TO ISSUE LIST</p>
             <img id="test" class="object-contain mb-20" src={newarray[conta]} />
           </div>
         </div>
