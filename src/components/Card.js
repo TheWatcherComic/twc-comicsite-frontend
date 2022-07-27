@@ -66,13 +66,16 @@ const AllCard = (props) => {
     }
   return (
     <a onClick={handleComicInfo} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
-        <div className='absolute ml-6 bottom-20 left-0'>
-            {props.children.com_descountCheck ? <SaleTag>{props.children.com_descountValue}</SaleTag> : ""}
-        </div>
-        <div className='absolute ml-6 -top-4 -right-3 '>
+        
+        <div className='absolute ml-6 -top-4 -right-3 z-10'>
             {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
         </div>
-        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" loading="lazy" src={props.children.com_picture} alt="" />
+        <div className="relative">
+            <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" loading="lazy" src={props.children.com_picture} alt="" />
+            <div className='absolute ml-6 bottom-5 left-0'>
+            {props.children.com_descountCheck ? <SaleTag>{props.children.com_descountValue}</SaleTag> : ""}
+        </div>
+        </div>
         <div className='pl-2 pt-2'>
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.com_name}</h1>
         </div>
