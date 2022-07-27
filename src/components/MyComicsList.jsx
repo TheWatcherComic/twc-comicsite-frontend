@@ -1,34 +1,17 @@
 import React from 'react';
 import {MyCard} from './Card';
-import ComicData from '../COMICS.json';
 import {useState, useEffect} from 'react';
-import {auth} from '../firebase';
+import {userComics} from '../controller/comic-controller'
+
 
 const MyComicsList = () => {
 
   const [searchTerm, setSeacrhTerm] = useState('');
-
-  const [items,setItems] = useState([]);
-  const [visible, setVisible] = useState(3);
   const [ComicData1, setComics] =  useState([]);
 
   useEffect(() => {
-    const fetchComics = async () => {
-      const token = await auth.currentUser.getIdToken();
-        const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/comics', {
-            method: 'POST',
-            headers: {
-              authorization: `Bearer ${token}`,
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            }
-        });
-        const info = await res.json();
-        //console.log(info.data);
-        setComics(info.data)
-    }
-    fetchComics()
-}, [])
+    const fetchComics = async () => { setComics(await userComics()); }; fetchComics()
+  }, [])
 
   return (
     <div class="py-6 px-4 sm:p-6 md:py-10 md:px-40">

@@ -36,4 +36,14 @@ const ComicsInfo = async (id) => {
 
 }
 
-export  {AllComics ,ComicsInfo,ComicsTag}
+const userComics = async () => {
+
+    const token = await auth.currentUser.getIdToken();
+
+    const { data } = await axios.post(ALLCOMICS_ENDPOINT,{},{ headers: { authorization: `Bearer ${token}`}});
+
+    return (data.data);
+    
+}
+
+export  {AllComics ,ComicsInfo,ComicsTag,userComics}
