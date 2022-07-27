@@ -114,7 +114,6 @@ const IssueCard = (props) => {
     const handleMyComic = () =>{
         navigate("/reader/" + props.children.id +"/" +props.children.number);
     }
-    console.log(props.children)
   return (
     <a onClick={handleMyComic} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
         <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.url} alt={props.children.number} loading="lazy"/>
