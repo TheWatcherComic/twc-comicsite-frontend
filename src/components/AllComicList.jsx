@@ -12,9 +12,10 @@ const AllComicList = () => {
   const [searchTerm, setSeacrhTerm] = useState('');
   const [ComicData1, setComics] =  useState([]);
   let { id } = useParams();
+  const stageID = Number(id);
   let title="";
 
-    switch(id) {
+    switch(stageID) {
       case 0:
             title="All Comics";
         break;
@@ -38,7 +39,7 @@ const AllComicList = () => {
   console.log(title);
 
   useEffect(() => {
-      const fetchComics = async () => { setComics(await ComicsTag(id)); }; fetchComics()
+      const fetchComics = async () => { setComics(await ComicsTag(stageID)); }; fetchComics()
 }, [])
 
   return (
