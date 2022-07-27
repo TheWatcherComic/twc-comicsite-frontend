@@ -21,8 +21,6 @@ const Cart = () => {
     0
   );
 
-  console.log(productsLength);
-
   return (
     <div>
       {!cartOpen ? (

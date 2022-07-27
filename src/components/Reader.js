@@ -12,8 +12,6 @@ import {ViewerC} from "./Viewer";
 const Reader = () => {
   let { id, chapter} = useParams();
   let paramsSend = [id,chapter]
-  console.log(id);
-
 
   return (
     <>

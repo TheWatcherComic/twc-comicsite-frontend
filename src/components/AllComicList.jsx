@@ -36,8 +36,6 @@ const AllComicList = () => {
           break;
     }
 
-  console.log(title);
-
   useEffect(() => {
       const fetchComics = async () => { setComics(await ComicsTag(stageID)); }; fetchComics()
 }, [ComicData1])

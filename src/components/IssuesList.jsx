@@ -2,7 +2,6 @@ import React from 'react';
 import {IssueCard, MyCard} from './Card';
 import ComicData from '../COMICS.json';
 import {useState, useEffect} from 'react';
-import {auth} from '../firebase';
 
 const IssuesList = (props) => {
 
@@ -10,25 +9,6 @@ const IssuesList = (props) => {
 
   const [items,setItems] = useState([]);
   const [visible, setVisible] = useState(3);
-  const [ComicData1, setComics] =  useState([]);
-
-  useEffect(() => {
-    const fetchComics = async () => {
-      const token = await auth.currentUser.getIdToken();
-        const res = await fetch('https://the-watcher-comic-backend.herokuapp.com/api/comics', {
-            method: 'POST',
-            headers: {
-              authorization: `Bearer ${token}`,
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            }
-        });
-        const info = await res.json();
-        //console.log(info.data);
-        setComics(info.data)
-    }
-    fetchComics()
-}, [])
 
   var issuesAmount = ComicData[props.children].chapters;
   var send = [];
