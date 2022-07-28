@@ -29,7 +29,7 @@ const ViewerC = (props) => {
     if (conta >= newarray.length) {
       document.getElementById("finish-button").classList.remove("hidden")
       document.getElementById("test").classList.add("hidden")
-      console.log("END")
+      console.log("END ")
       
     }
     window.scrollTo(0, 0);
