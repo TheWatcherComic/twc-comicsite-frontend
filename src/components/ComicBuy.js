@@ -6,7 +6,6 @@ import { AllCard } from "./Card";
 import { Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Cart from "./Cart";
-import ViewerC from "./Viewer";
 
 
 const ComicBuy = () => {
@@ -16,6 +15,7 @@ const ComicBuy = () => {
     <>
       <Navbar />
       <ProductShow>{id}</ProductShow>
+      <Cart />
       <Footer />
     </>
   );

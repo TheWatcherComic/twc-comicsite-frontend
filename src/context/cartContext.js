@@ -18,14 +18,14 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (product) => {
+    console.log(product.com_id);
     const inCart = cartItems.find(
-      (productInCart) => productInCart.id === product.id
+      (productInCart) => productInCart.com_id === product.com_id
     );
-    console.log(typeof(inCart.amount))
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
-          if (productInCart.id === product.id) {
+          if (productInCart.com_id === product.com_id) {
             return { ...inCart, amount: inCart.amount + 1 };
           } else return productInCart;
         })
@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
 
     if (inCart.amount === 1) {
       setCartItems(
-        cartItems.filer((productInCart) => productInCart.id !== product.id)
+        cartItems.filter((productInCart) => productInCart.id !== product.id)
       );
     } else {
       setCartItems((productInCart) => {

@@ -66,13 +66,16 @@ const AllCard = (props) => {
     }
   return (
     <a onClick={handleComicInfo} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
-        <div className='absolute ml-6 bottom-20 left-0'>
-            {props.children.com_descountCheck ? <SaleTag>{props.children.com_descountValue}</SaleTag> : ""}
-        </div>
-        <div className='absolute ml-6 -top-4 -right-3 '>
+        
+        <div className='absolute ml-6 -top-4 -right-3 z-10'>
             {props.children.status ? <Tag>{props.children.tag}</Tag> : ""}
         </div>
-        <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" loading="lazy" src={props.children.com_picture} alt="" />
+        <div className="relative">
+            <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" loading="lazy" src={props.children.com_picture} alt="" />
+            <div className='absolute ml-6 bottom-5 left-0'>
+            {props.children.com_descountCheck ? <SaleTag>{props.children.com_descountValue}</SaleTag> : ""}
+        </div>
+        </div>
         <div className='pl-2 pt-2'>
             <h1 class="text-gray-900 lg:text-sm text-base mb-2 font-bold dark:text-white  " >{props.children.com_name}</h1>
         </div>
@@ -114,7 +117,6 @@ const IssueCard = (props) => {
     const handleMyComic = () =>{
         navigate("/reader/" + props.children.id +"/" +props.children.number);
     }
-    console.log(props.children)
   return (
     <a onClick={handleMyComic} class="flex flex-col drop-shadow-xl rounded-lg md:min-h-80 lg:w-52 cursor-pointer relative ">
         <img class="w-full max-h-80 md:h-auto object-cover lg:w-52 rounded-lg md:rounded-lg" src={props.children.url} alt={props.children.number} loading="lazy"/>
@@ -124,5 +126,23 @@ const IssueCard = (props) => {
     </a>
   )
 }
+const CheckoutCard = (props) => {
+  return (
+    <div className='flex flex-row justify-start mt-5 pt-3 pb-3 bg-neutral-200 dark:bg-zinc-800 bg-cover bg-center rounded-lg' id='product-show'>
+        <img src={props.children.image} className='w-20 ml-3' />
+        <div className='ml-3 pr-10 flex flex-col w-full' id='product-content'>
+            <div className='flex flex-col'>
+            <h1 className='ml-3 text-xl font-bold'>{props.children.title}</h1>
+            <h1 className='ml-3 text-sm font-extralight mb-10'>{props.children.house}</h1>
+            </div>
+            <div className='flex flex-row justify-between text-base font-light'>
+                <h1 className='ml-3'>X1</h1>
+                <h1 className='ml-3'>${props.children.price}</h1>
+            </div>
 
-export  {CardLanding,AllCard,MyCard, IssueCard}
+        </div>
+    </div>
+  )
+}
+
+export  {CardLanding,AllCard,MyCard, IssueCard,CheckoutCard}

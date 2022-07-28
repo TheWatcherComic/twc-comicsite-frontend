@@ -59,7 +59,7 @@ const LandingSection = (props) => {
 
                     <div className='flex flex-row items-center justify-center gap-1 '>
                         
-                        <button onClick={()=>slideLeft(props.children.titulo)} className='dark:bg-black/40 h-44 flex items-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-900 hover:shadow-lg'>
+                        <button onClick={()=>slideLeft(props.children.titulo)} className='dark:bg-black/40 h-72 flex items-center rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-900 hover:shadow-lg'>
                             <ChevronDoubleLeftIcon className='dark:text-white w-10 mx-2' />
                         </button>
 
@@ -69,7 +69,7 @@ const LandingSection = (props) => {
                             ))}
                         </div>
 
-                        <button onClick={()=>slideRight(props.children.titulo)} className='dark:bg-black/40 h-44 flex items-center rounded-lg hover:bg-zinc-200  dark:hover:bg-zinc-900 hover:shadow-lg'>
+                        <button onClick={()=>slideRight(props.children.titulo)} className='dark:bg-black/40 h-72 flex items-center rounded-lg hover:bg-zinc-200  dark:hover:bg-zinc-900 hover:shadow-lg'>
                             <ChevronDoubleRightIcon className='dark:text-white w-10 mx-2' />
                         </button>
 

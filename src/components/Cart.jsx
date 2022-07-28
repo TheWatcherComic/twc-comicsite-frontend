@@ -25,7 +25,7 @@ const Cart = () => {
     <div>
       {!cartOpen ? (
         <button
-          onclick={() => setCartOpen(!cartOpen)}
+          onClick={() => setCartOpen(!cartOpen)}
           title="Contact Sale"
           class="fixed z-50 bottom-10 right-8 bg-zinc-800 dark:bg-zinc-50 border-2 dark:border-zinc-700 border-zinc-50 w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl dark:hover:bg-zinc-200 hover:drop-shadow-2xl"
         >
@@ -37,7 +37,7 @@ const Cart = () => {
         </button>
       ) : (
         <button
-          onclick={() => setCartOpen(!cartOpen)}
+          onClick={() => setCartOpen(!cartOpen)}
           title="Contact Sale"
           class="fixed z-50 bottom-10 right-8 bg-zinc-800 dark:bg-zinc-50 border-2 dark:border-zinc-700 border-zinc-50 w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl dark:hover:bg-zinc-200 hover:drop-shadow-2xl"
         >

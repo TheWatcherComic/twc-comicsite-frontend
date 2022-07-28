@@ -13,6 +13,9 @@ const ProductShow = (props) => {
         const fetchComics = async () => { setComics2(await comicsInfo(id)); }; fetchComics();
     }, [])
 
+    const {addItemToCart} = useContext(CartContext);
+
+
     //let newarray = ComicData? ComicData[0]:null ;
 
   return (
@@ -24,8 +27,11 @@ const ProductShow = (props) => {
                 </div>
             </div>
             <div className="flex flex-col justify-center mx-5">
-                <div className="flex">
+                <div className="flex ">
                     <h1 className='mt-5 text-xl font-bold text-slate-900 md:text-4xl dark:text-white'>{ComicData[0].com_name}</h1>
+                </div>
+                <div className="flex">
+                    <h2 className='mt-1 text-base font-light text-slate-900 dark:text-white'>{ComicData[0].com_house} | {ComicData[0].com_year}</h2>
                 </div>
                 <div className="flex">
                     <p className='mt-5 text-base text-justify font-light text-slate-900 md:text-base dark:text-white text-ellipsis overflow-hidden'>{ComicData[0].com_description}</p>
@@ -41,7 +47,7 @@ const ProductShow = (props) => {
                         <Price>{ComicData[0]}</Price>
                     </div>
                     <div className="flex ">
-                        <button  type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>
+                        <button onClick={()=> addItemToCart(ComicData[0])} type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>
                     </div>
                 </div>
             </div>
