@@ -1,6 +1,7 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import { Price } from './Price';
 import {comicsInfo} from '../controller/comic-controller'
+import {CartContext} from '../context/cartContext'
 
 
 const ProductShow = (props) => {
