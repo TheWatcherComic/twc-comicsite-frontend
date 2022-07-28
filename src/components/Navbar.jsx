@@ -149,7 +149,7 @@ const Navbar = () => {
               <HomeIcon class="inline-block mb-1 h-7 w-10"/>
               <span class="tab tab-home block text-xs">Home</span>
             </a>
-            <a href="/all-comics" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
+            <a href="/all-comics/0" class="w-full focus:text-red-500 hover:text-red-500 justify-center inline-block text-center pt-4 pb-4">
               <TemplateIcon class="inline-block mb-1 h-7 w-10" />
               <span class="tab tab-explore block text-xs">Explore</span>
             </a>

@@ -14,13 +14,13 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartItems));
-    console.log(cartItems)
     
   }, [cartItems]);
 
   const addItemToCart = (product) => {
+    console.log(product.com_id);
     const inCart = cartItems.find(
-      (productInCart) => productInCart.id === product.id
+      (productInCart) => productInCart.com_id === product.com_id
     );
     if (inCart) {
       setCartItems(
@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
 
     if (inCart.amount === 1) {
       setCartItems(
-        cartItems.filer((productInCart) => productInCart.id !== product.id)
+        cartItems.filter((productInCart) => productInCart.id !== product.id)
       );
     } else {
       setCartItems((productInCart) => {
