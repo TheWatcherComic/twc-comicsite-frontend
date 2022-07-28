@@ -1,8 +1,7 @@
 import React from 'react';
 import {AllCard} from './Card';
-import ComicData from '../COMICS.json';
 import {useState, useEffect} from 'react';
-import {ComicsTag} from '../controller/comic-controller'
+import {comicsTag} from '../controller/comic-controller'
 import { useParams } from "react-router-dom";
 
 
@@ -37,7 +36,7 @@ const AllComicList = () => {
     }
 
   useEffect(() => {
-      const fetchComics = async () => { setComics(await ComicsTag(stageID)); }; fetchComics()
+      const fetchComics = async () => { setComics(await comicsTag(stageID)); }; fetchComics()
 }, [ComicData1])
 
   return (

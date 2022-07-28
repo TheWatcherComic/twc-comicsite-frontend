@@ -2,7 +2,7 @@ import React from 'react'
 import {CardLanding} from './Card';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/outline';
 import {useState, useEffect} from 'react';
-import {AllComics} from '../controller/comic-controller'
+import {allComics} from '../controller/comic-controller'
 import { useNavigate } from "react-router-dom";
 
 
@@ -25,33 +25,20 @@ const LandingSection = (props) => {
     }
 
     const handleAllComic = (divId) => {
-
         let id;
-
         switch(divId) {
-            case 'New Realeses':
-                  id=1;
-              break;
-            case 'Trending':
-                  id=2;
-              break;
-            case 'Sales':
-                  id=3;
-                break;
-            case 'Marvel':
-                  id=4;
-                break;
-            case 'DC':
-                  id=5;
-                break;
+            case 'New Realeses': id=1; break;
+            case 'Trending': id=2; break;
+            case 'Sales': id=3; break;
+            case 'Marvel': id=4; break;
+            case 'DC': id=5; break;
           }
-
         navigate("/all-comics/"+id);
     };
 
 
     useEffect(() => {
-        const fetchComics = async () => { setComics2(await AllComics()); }; fetchComics()
+        const fetchComics = async () => { setComics2(await allComics()); }; fetchComics()
     }, [])
  
     let array = ComicData;

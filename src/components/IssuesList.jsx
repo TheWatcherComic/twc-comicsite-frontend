@@ -7,9 +7,6 @@ const IssuesList = (props) => {
 
   const [searchTerm, setSeacrhTerm] = useState('');
 
-  const [items,setItems] = useState([]);
-  const [visible, setVisible] = useState(3);
-
   var issuesAmount = ComicData[props.children].chapters;
   var send = [];
   

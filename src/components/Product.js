@@ -1,11 +1,6 @@
-import React, { useContext,useState,useEffect } from 'react'
-import ComicData from '../COMICS.json';
+import React, { useState,useEffect } from 'react'
 import { Price } from './Price';
-import {CartContext} from "../context/cartContext";
-import axios from 'axios';
-import {auth} from '../firebase';
-import { data } from 'autoprefixer';
-import {ComicsInfo} from '../controller/comic-controller'
+import {comicsInfo} from '../controller/comic-controller'
 
 
 const ProductShow = (props) => {
@@ -15,7 +10,7 @@ const ProductShow = (props) => {
     const [ComicData, setComics2] =  useState(null);
 
     useEffect(() => {
-        const fetchComics = async () => { setComics2(await ComicsInfo(id)); }; fetchComics();
+        const fetchComics = async () => { setComics2(await comicsInfo(id)); }; fetchComics();
     }, [])
 
     //let newarray = ComicData? ComicData[0]:null ;
