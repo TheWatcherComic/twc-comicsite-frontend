@@ -42,7 +42,7 @@ const CheckoutComponent = () => {
                   <div className='p-5 flex flex-col h-56 w-full' id='product-content'>
                       <h1 className='text-xl font-bold mb-10'>Choose payment method</h1>
                       <div className='flex flex-col justify-center items-center text-base font-light'>
-                          <button onClick={() => { window.location = YappyData.url; } } type="button" className='bg-red-500 text-white py-2 px-6 rounded-lg w-full hover:bg-red-400 duration-500'>Yappy</button>
+                          <button onClick={() => { window.location = YappyData.url; } } type="button" className='bg-[#1F4B92] text-white py-2 px-6 rounded-lg w-full hover:bg-blue-500 duration-500 flex flex-row items-center justify-center'><p className='mr-2'>Pay with</p>  <img src="https://www.fundacioncalicanto.org/wp-content/uploads/2021/12/rsz_yappy-big-logo-1.png" className='w-10' alt="yappy-logo" /> <p className='ml-2'>yappy</p> </button>
                           <div className='flex flex-col bg-neutral-300 dark:bg-zinc-700 mt-5 rounded-lg p-5'>
                               <div className='flex flex-col'>
                                   <h1 className='capitalize font-normal'>add promo code</h1>
