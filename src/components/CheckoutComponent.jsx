@@ -49,7 +49,7 @@ const CheckoutComponent = () => {
                                   <input type="text" class="block border border-zinc-100 dark:border-zinc-700 w-full p-2 rounded mb-5 dark:bg-zinc-900 dark:text-white" name="promo" placeholder="####-####-####" />
                               </div>
                           </div>
-                          <div className='flex flex-col bg-neutral-300 dark:bg-zinc-700 mt-5 rounded-lg p-5'>
+                          <div className='flex flex-col bg-neutral-300 dark:bg-zinc-700 mt-5 rounded-lg p-5'> 
                               <h1>Other payment methods</h1>
                               <PaypalBtt />
                               <AppleBtt />
