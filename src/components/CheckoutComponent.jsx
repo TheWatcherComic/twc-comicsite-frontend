@@ -20,7 +20,6 @@ const CheckoutComponent = () => {
         }; fetchComics();
     },[])
 
-
   return ( 
     <div className='h-full w-full flex flex-col mb-5 lg:flex-row lg:justify-center dark:text-white'>
         {YappyData && ComicData?( <><div className='py-6 px-0 flex flex-col lg:flex-row sm:p-6 md:py-10 md:px-40 '>
