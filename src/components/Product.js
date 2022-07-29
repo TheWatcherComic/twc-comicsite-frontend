@@ -1,27 +1,42 @@
 import React, { useState,useEffect, useContext } from 'react'
 import { Price } from './Price';
-import {comicsInfo} from '../controller/comic-controller'
+import {comicsInfo,userComics} from '../controller/comic-controller'
 import {CartContext} from '../context/cartContext'
+import { useNavigate } from "react-router-dom";
 
 
 const ProductShow = (props) => {
 
     var id = Number(props.children);
+    let check=false;
 
+   
     const [ComicData, setComics2] =  useState(null);
+    const [userData, setuserComics] =  useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchComics = async () => { setComics2(await comicsInfo(id)); }; fetchComics();
+        const fetchComics = async () => { 
+            setuserComics(await userComics());
+            setComics2(await comicsInfo(id));                    
+        }; fetchComics();
+
+
     }, [])
 
     const {addItemToCart} = useContext(CartContext);
 
-
     //let newarray = ComicData? ComicData[0]:null ;
+    
 
   return (
     <div className='py-6 px-0 sm:p-6 md:py-10 md:px-40'>
-        {ComicData?(<div class="flex flex-col justify-center  md:flex-row md:gap-x-5">
+        {ComicData && userData?(<div class="flex flex-col justify-center  md:flex-row md:gap-x-5">
+            {userData.forEach(element => {
+                if(element.com_id == id){
+                    check=true;
+                }  
+            })}
             <div className="flex items-center md:shrink-0 ">
                 <div className="w-full object-cover md:w-72 lg:w-96 rounded-lg md:rounded-lg">
                     <img src={ComicData[0].com_picture} alt="" class="drop-shadow-lg md:drop-shadow-lg" loading="lazy" />
@@ -48,7 +63,7 @@ const ProductShow = (props) => {
                         <Price>{ComicData[0]}</Price>
                     </div>
                     <div className="flex ">
-                        <button onClick={()=> addItemToCart(ComicData[0])} type="button" class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>
+                        {!check?(<button onClick={ ()=>{ addItemToCart(ComicData[0]); navigate("/checkout")} } type="button"  class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>):<button onClick={()=>{navigate("/my-comics")}} type="button"  class="bg-blue-500 hover:bg-blue-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">My Library</button>}
                     </div>
                 </div>
             </div>
