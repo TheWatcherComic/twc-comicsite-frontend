@@ -39,7 +39,7 @@ const LandingSection = (props) => {
 
     useEffect(() => {
         const fetchComics = async () => { setComics2(await allComics()); }; fetchComics()
-    }, [])
+    }, [ComicData])
  
     let array = ComicData;
         
