@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const LandingSection = (props) => {
     
     const navigate = useNavigate();
-    const [ComicData, setComics2] =  useState(['']);
+    const [ComicData, setComics2] =  useState([]);
 
     let arrtag = props.children.tag;
     let arrhouse = props.children.house;
