@@ -6,9 +6,30 @@ import { ShoppingCartIcon, ChevronDownIcon } from "@heroicons/react/outline";
 const Cart = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
+  /*let loop = true;
+  let arrayData = {};
+  let arrayLoop ={}*/
 
 
   const { cartItems } = useContext(CartContext);
+
+/*while(loop){
+
+  if(arrayLoop.length===0){
+    arrayLoop=cartItems[0];
+    arrayData.push(cartItems[1]);
+  }else{
+    if(arrayLoop !== undefined)
+    {
+      arrayLoop=cartItems[0];
+      arrayData.push(cartItems[1]);
+    }else{
+      loop=false;
+    }
+  }
+}*/
+
+//console.log(arrayData);
 
   useEffect(() => {
     setProductsLength(
