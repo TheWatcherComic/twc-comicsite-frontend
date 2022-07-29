@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const LandingSection = (props) => {
     
     const navigate = useNavigate();
-    const [ComicData, setComics2] =  useState([]);
+    const [ComicData, setComics2] =  useState(['']);
 
     let arrtag = props.children.tag;
     let arrhouse = props.children.house;
@@ -39,7 +39,7 @@ const LandingSection = (props) => {
 
     useEffect(() => {
         const fetchComics = async () => { setComics2(await allComics()); }; fetchComics()
-    }, [ComicData])
+    }, [])
  
     let array = ComicData;
         
