@@ -63,7 +63,7 @@ const ProductShow = (props) => {
                         <Price>{ComicData[0]}</Price>
                     </div>
                     <div className="flex ">
-                        {!check?(<button onClick={ ()=>{ addItemToCart(ComicData[0]); navigate("/checkout")} } type="button"  class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>):<button onClick={()=>{navigate("/my-comics")}} type="button"  class="bg-blue-500 hover:bg-blue-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">My Library</button>}
+                        {!check?(<button onClick={ ()=>{ addItemToCart(ComicData[0]); navigate("/checkout/"+ComicData[0].com_id+"/"+ComicData[0].com_price)} } type="button"  class="bg-red-500 hover:bg-red-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">Buy</button>):<button onClick={()=>{navigate("/my-comics")}} type="button"  class="bg-blue-500 hover:bg-blue-400 text-white text-sm leading-6 font-medium py-2 px-3 w-24 md:w-44 rounded-lg">My Library</button>}
                     </div>
                 </div>
             </div>

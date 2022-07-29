@@ -18,14 +18,13 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (product) => {
-    console.log(product.com_id);
-    const inCart = cartItems.find(
-      (productInCart) => productInCart.com_id === product.com_id
-    );
+
+    const inCart = cartItems.find((productInCart) => Number(productInCart.com_id) === Number(product.com_id) );
+
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
-          if (productInCart.com_id === product.com_id) {
+          if (Number(productInCart.com_id) === Number(product.com_id)) {
             return { ...inCart, amount: inCart.amount + 1 };
           } else return productInCart;
         })
@@ -37,16 +36,16 @@ export const CartProvider = ({ children }) => {
 
   const deleteItemToCart = (product) => {
     const inCart = cartItems.find(
-      (productInCart) => productInCart.id === product.id
+      (productInCart) => Number(productInCart.com_id) === Number(product.com_id)
     );
 
     if (inCart.amount === 1) {
       setCartItems(
-        cartItems.filter((productInCart) => productInCart.id !== product.id)
+        cartItems.filter((productInCart) => Number(productInCart.com_id) !== Number(product.com_id))
       );
     } else {
       setCartItems((productInCart) => {
-        if (productInCart.id === product.id) {
+        if (Number(productInCart.com_id) === Number(product.com_id)) {
           return { ...inCart, amount: inCart.amount - 1 };
         } else return productInCart;
       });

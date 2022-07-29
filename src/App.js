@@ -61,7 +61,7 @@ function App() {
                 <Issues />
               </ProtectedRoute>
             } />
-            <Route path={"/checkout"}element={
+            <Route path={"/checkout/:id/:precio"}element={
               <ProtectedRoute>
                 <Checkout />
               </ProtectedRoute>

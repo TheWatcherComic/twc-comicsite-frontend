@@ -16,6 +16,7 @@ const Cart = () => {
     );
   }, [cartItems]);
 
+
   const total = cartItems.reduce(
     (previous, current) => previous + current.amount * current.price,
     0
@@ -53,7 +54,7 @@ const Cart = () => {
             ) : (
               <div>
                 {cartItems.map((item, i) => {
-                  <li>item.item</li>;
+                  <li>item[i].item; console.log(item);</li>;
                 })}
               </div>
             )}

@@ -129,15 +129,15 @@ const IssueCard = (props) => {
 const CheckoutCard = (props) => {
   return (
     <div className='flex flex-row justify-start mt-5 pt-3 pb-3 bg-neutral-200 dark:bg-zinc-800 bg-cover bg-center rounded-lg' id='product-show'>
-        <img src={props.children.image} className='w-20 ml-3' />
+        <img src={props.children.com_picture} className='w-20 ml-3' />
         <div className='ml-3 pr-10 flex flex-col w-full' id='product-content'>
             <div className='flex flex-col'>
-            <h1 className='ml-3 text-xl font-bold'>{props.children.title}</h1>
-            <h1 className='ml-3 text-sm font-extralight mb-10'>{props.children.house}</h1>
+            <h1 className='ml-3 text-xl font-bold'>{props.children.com_name}</h1>
+            <h1 className='ml-3 text-sm font-extralight mb-10'>{props.children.com_house}</h1>
             </div>
             <div className='flex flex-row justify-between text-base font-light'>
                 <h1 className='ml-3'>X1</h1>
-                <h1 className='ml-3'>${props.children.price}</h1>
+                <h1 className='ml-3'>${props.children.com_price}</h1>
             </div>
 
         </div>

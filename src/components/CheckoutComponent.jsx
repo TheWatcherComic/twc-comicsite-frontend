@@ -1,33 +1,38 @@
 import React, { useState,useEffect} from 'react'
-import ComicData from "../COMICS.json";
+import {useParams } from "react-router-dom";
 import {yappyUrl} from '../controller/payment-controller'
+import {comicsInfo} from '../controller/comic-controller'
 import {AppleBtt, PaypalBtt, VisaBtt} from './Buttons';
 import { CheckoutCard } from './Card';
 
 const CheckoutComponent = () => {
 
     const [YappyData, setYappy] =  useState(null);
+    const [ComicData, setComics2] =  useState(null);
+    let { id, precio} = useParams();
 
     useEffect(() => {
         const fetchComics = async () => { 
-            setYappy(await yappyUrl(ComicData[11].price,ComicData[11].id));                    
+
+            setYappy(await yappyUrl(Number(precio),Number(id)));
+            setComics2(await comicsInfo(Number(id)));  
+
         }; fetchComics();
     },[])
 
 
   return ( 
     <div className='h-full w-full flex flex-col mb-5 lg:flex-row lg:justify-center dark:text-white'>
-        {YappyData?( <><div className='py-6 px-0 flex flex-col lg:flex-row sm:p-6 md:py-10 md:px-40 '>
+        {YappyData && ComicData?( <><div className='py-6 px-0 flex flex-col lg:flex-row sm:p-6 md:py-10 md:px-40 '>
               <div className='flex flex-col justify-start  md:flex-row md:gap-x-5 '>
                   <div className='flex flex-col justify-center  px-5' id='titles'>
                       <h1 className='font-extrabold text-3xl'>Checkout</h1>
                       <CheckoutCard>{ComicData[0]}</CheckoutCard>
-                      <CheckoutCard>{ComicData[2]}</CheckoutCard>
                       <div className='flex flex-row justify-start mt-5 pt-3 pb-3 bg-neutral-200 dark:bg-zinc-800 bg-cover bg-center rounded-lg' id='product-show'>
                           <div className='ml-3 pr-10 flex flex-col' id='product-content'>
                               <h1 className='ml-3 text-xl font-bold'>Total</h1>
                               <div className='flex flex-row justify-between text-base font-light'>
-                                  <h1 className='ml-3'>$25</h1>
+                                  <h1 className='ml-3'>${ComicData[0].com_price}</h1>
                               </div>
                           </div>
                       </div>
